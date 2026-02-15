@@ -526,7 +526,31 @@
 	max_integrity = 120
 
 /turf/open/floor/concrete/slab
-	icon_state = "conc_slab"
+	icon_state = "sheet-conc_slab"
+	floor_tile = /obj/item/stack/tile/mineral/conc_slab
 
 /turf/open/floor/concrete/tile
 	icon_state = "conc_tiles"
+//	floor_tile = /obj/item/stack/tile/mineral/conc_tile
+
+/turf/open/floor/brick
+	name = "brick path"
+	icon_state = "brick"
+	desc = "a path made with bricks."
+	floor_tile = /obj/item/stack/tile/mineral/brick
+	barefootstep = FOOTSTEP_HARD_BAREFOOT
+	clawfootstep = FOOTSTEP_HARD_CLAW
+	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+	tiled_dirt = FALSE
+	max_integrity = 120
+
+//turf/open/floor/cobblestone
+//	name = "cobblestone"
+//	icon_state = "cobble"
+//	desc = "."
+//	floor_tile = /obj/item/stack/tile/mineral/cobble
+//	barefootstep = FOOTSTEP_HARD_BAREFOOT
+//	clawfootstep = FOOTSTEP_HARD_CLAW
+//	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+//	tiled_dirt = FALSE
+//	max_integrity = 120

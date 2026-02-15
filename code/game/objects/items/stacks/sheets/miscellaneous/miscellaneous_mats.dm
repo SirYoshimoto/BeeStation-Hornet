@@ -24,6 +24,23 @@ Miscellaneous material sheets
 /obj/item/stack/sheet/wax/get_recipes()
 	return GLOB.wax_recipes
 
+/* Concrete Bags */
+
+/obj/item/stack/sheet/conc_bag
+	name = "concrete bags"
+	icon_state = "conc_bags"
+	singular_name = "concrete bags"
+	icon = 'icons/obj/stacks/miscellaneous.dmi'
+	novariants = TRUE
+	merge_type = /obj/item/stack/sheet/conc_bag
+
+GLOBAL_LIST_INIT(concbag_recipes, list ( \
+	new/datum/stack_recipe("concrete slabs", /obj/item/stack/tile/mineral/conc_slab, 1, 4, 20, time = 4 SECONDS, crafting_flags = NONE, category = CAT_TILES), \
+	))
+
+/obj/item/stack/sheet/conc_bag/get_recipes()
+	return GLOB.concbag_recipes
+
 /* Sandbags */
 
 /obj/item/stack/sheet/sandbags

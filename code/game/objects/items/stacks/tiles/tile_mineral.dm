@@ -290,6 +290,25 @@
 	turf_type = /turf/open/floor/bronze/filled
 	merge_type = /obj/item/stack/tile/mineral/bronze/filled
 
+/obj/item/stack/tile/mineral/conc_slab
+	name = "concrete slabs"
+	singular_name = "concrete slab"
+	desc = "Heavy Concrete slabs, careful of your back when lifting."
+	icon_state = "sheet-conc_slab"
+	inhand_icon_state = "tile-conc-slab"
+	turf_type = /turf/open/floor/concrete/slab
+	merge_type = /obj/item/stack/tile/mineral/conc_slab
+
+/obj/item/stack/tile/mineral/brick
+	name = "clay bricks"
+	singular_name = "clay brick"
+	desc = "Solid clay bricks, ready for throwing at someones head."
+	icon_state = "tile-brick"
+	inhand_icon_state = "tile-brick"
+	turf_type = /turf/open/floor/brick
+	mats_per_unit = list(/datum/material/titanium=MINERAL_MATERIAL_AMOUNT*0.25)
+	merge_type = /obj/item/stack/tile/mineral/brick
+
 /obj/item/stack/tile/cult
 	name = "engraved tile"
 	singular_name = "engraved floor tile"

@@ -108,6 +108,7 @@
 		//obj/item/stack/sheet/animalhide/carp = GLOB.carp_recipes,
 		/obj/item/stack/sheet/mineral/sandstone = GLOB.sandstone_recipes,
 		/obj/item/stack/sheet/sandbags = GLOB.sandbag_recipes,
+		/obj/item/stack/sheet/conc_bag = GLOB.concbag_recipes,
 		/obj/item/stack/sheet/mineral/diamond = GLOB.diamond_recipes,
 		/obj/item/stack/sheet/mineral/uranium = GLOB.uranium_recipes,
 		/obj/item/stack/sheet/mineral/plasma = GLOB.plasma_recipes,

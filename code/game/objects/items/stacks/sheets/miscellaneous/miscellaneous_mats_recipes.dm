@@ -8,6 +8,13 @@ STACKSIZE_MACRO(/obj/item/stack/sheet/wax)
 
 STACKSIZE_MACRO(/obj/item/stack/sheet/sandbags)
 
+/* Concrete Bags */
+GLOBAL_LIST_INIT(concrete_recipes, list (
+	new/datum/stack_recipe("concrete slabs", /obj/item/stack/tile/mineral/conc_slab, 1, 4, 20, time = 4 SECONDS, crafting_flags = NONE, category = CAT_TILES), \
+))
+
+STACKSIZE_MACRO(/obj/item/stack/sheet/conc_bag)
+
 /* Snow */
 
 GLOBAL_LIST_INIT(snow_recipes, list (
