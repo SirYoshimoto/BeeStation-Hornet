@@ -82,6 +82,13 @@
 /// Diona nymphs
 #define FACTION_DIONA "diona"
 
+// Ecosystem factions
+
+///Carnivores, eats herbivores
+#define FACTION_CARNIVORE "carnivore"
+///Herbivores, eats plants
+#define FACTION_HERBIVORE "herbivore"
+
 // Antagonist factions
 
 /// Cultists and their constructs

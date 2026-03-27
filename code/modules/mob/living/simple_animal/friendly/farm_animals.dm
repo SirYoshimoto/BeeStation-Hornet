@@ -281,3 +281,57 @@
 	attack_sound = 'sound/creatures/turkey.ogg'
 	gold_core_spawnable = FRIENDLY_SPAWN
 	chat_color = "#FFDC9B"
+
+//ECOSYSTEM ANIMALS//
+
+/mob/living/simple_animal/ecosystem/goat_eco
+	name = "goat"
+	desc = "A wild goat, not exactly known to be friendly with anyone."
+	icon_state = "goat"
+	icon_living = "goat"
+	icon_dead = "goat_dead"
+	speak = list("EHEHEHEHEH","eh?")
+	speak_emote = list("brays")
+	speak_language = /datum/language/metalanguage
+	emote_hear = list("brays.")
+	emote_see = list("shakes its head.", "stamps a foot.", "glares around.")
+	speak_chance = 1
+	turns_per_move = 2
+	see_in_dark = 6
+	butcher_results = list(/obj/item/food/meat/slab = 4)
+	response_help_continuous = "pets"
+	response_help_simple = "pet"
+	response_disarm_continuous = "gently pushes aside"
+	response_disarm_simple = "gently push aside"
+	response_harm_continuous = "kicks"
+	response_harm_simple = "kick"
+	faction = list(FACTION_HERBIVORE)
+	mob_biotypes = MOB_ORGANIC | MOB_BEAST
+	attack_same = 1
+	attack_verb_continuous = "kicks"
+	attack_verb_simple = "kick"
+	attack_sound = 'sound/weapons/punch1.ogg'
+	health = 40
+	maxHealth = 40
+	melee_damage = 5
+	environment_smash = ENVIRONMENT_SMASH_NONE
+	blood_volume = BLOOD_VOLUME_NORMAL
+	chat_color = "#B2CEB3"
+
+	footstep_type = FOOTSTEP_MOB_SHOE
+
+	ai_controller = /datum/ai_controller/basic_controller/goat
+
+	///lifespan counter, over the animals lifetime the damage creeps up and kills them.
+	///The older the animal is, the easier it is to kill. Death is inevitable.
+	L.adjustBruteLoss
+
+/datum/ai_controller/basic_controller/goat
+	blackboard = list()
+
+	ai_movement = /datum/ai_movement/basic_avoidance
+	idle_behavior = /datum/idle_behavior/idle_random_walk
+	planning_subtrees = list(
+		//datum/ai_planning_subtree//
+		/datum/ai_planning_subtree/find_and_hunt_target/herbivore,
+	)
