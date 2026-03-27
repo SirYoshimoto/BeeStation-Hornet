@@ -626,6 +626,16 @@ CREATION_TEST_IGNORE_SUBTYPES(/obj/effect/temp_visual/launchpad)
 	icon = 'icons/effects/weather_effects.dmi'
 	duration = 3.2 SECONDS
 
+/obj/effect/temp_visual/light_rain
+	icon_state = "light_rain"
+	icon = 'icons/effects/weather_effects.dmi'
+	duration = 3.2 SECONDS
+
+/obj/effect/temp_visual/heavy_rain
+	icon_state = "heavy_rain"
+	icon = 'icons/effects/weather_effects.dmi'
+	duration = 3.2 SECONDS
+
 /obj/effect/temp_visual/sonar_ping
 	duration = 3 SECONDS
 	resistance_flags = FIRE_PROOF | UNACIDABLE | ACID_PROOF

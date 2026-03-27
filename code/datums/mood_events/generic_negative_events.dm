@@ -217,3 +217,8 @@
 	description = span_warning("That loud gong noise really hurt my ears!")
 	mood_change = -3
 	timeout = 2 MINUTES
+
+/datum/mood_event/soaked
+	description = span_warning("I'm drenched to the bone with water, this sucks!")
+	mood_change = -3
+	timeout = 2 MINUTES

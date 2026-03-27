@@ -153,6 +153,7 @@
 
 	AddElement(/datum/element/weather_listener, /datum/weather/ash_storm, ZTRAIT_ASHSTORM, GLOB.ash_storm_sounds)
 	AddElement(/datum/element/weather_listener, /datum/weather/rad_storm, ZTRAIT_STATION, GLOB.rad_storm_sounds)
+	AddElement(/datum/element/weather_listener, /datum/weather/rain_storm, ZTRAIT_RAINSTORM, GLOB.rain_storm_sounds)
 
 	// Set mouse pointer
 	client.mouse_override_icon = null

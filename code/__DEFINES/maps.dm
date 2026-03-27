@@ -56,6 +56,7 @@ require only minor tweaks.
 #define ZTRAIT_ASHSTORM "Weather_Ashstorm"
 #define ZTRAIT_ACIDRAIN "Weather_Acidrain"
 #define ZTRAIT_VOIDSTORM "Weather_Voidstorm"
+#define ZTRAIT_RAINSTORM "Weather_Rainstorm"
 /// number - bombcap is multiplied by this before being applied to bombs
 #define ZTRAIT_BOMBCAP_MULTIPLIER "Bombcap Multiplier"
 
@@ -80,7 +81,8 @@ require only minor tweaks.
 
 /// default trait definitions, used by SSmapping
 #define ZTRAITS_CENTCOM list(ZTRAIT_CENTCOM = TRUE)
-#define ZTRAITS_STATION list(ZTRAIT_LINKAGE = SELFLOOPING, ZTRAIT_STATION = TRUE)
+#define ZTRAITS_STATION list(ZTRAIT_LINKAGE = SELFLOOPING, ZTRAIT_STATION = TRUE, ZTRAIT_RAINSTORM = TRUE)
+//#define ZTRAITS_VULKAN list(ZTRAIT_LINKAGE = SELFLOOPING, ZTRAIT_STATION = TRUE, ZTRAIT_RAINSTORM = TRUE)
 #define ZTRAITS_SPACE list(ZTRAIT_LINKAGE = SELFLOOPING, ZTRAIT_DYNAMIC_LEVEL = TRUE)
 #define ZTRAITS_LAVALAND list(\
 	ZTRAIT_MINING = TRUE, \

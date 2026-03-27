@@ -52,6 +52,26 @@
 	volume = 100
 	extra_range = 30
 
+//VULKAN WEATHER//
+
+/datum/looping_sound/active_outside_rain_storm
+	mid_sounds = list(
+		'sound/weather/rainstorm/outside/active_mid.ogg'=1)
+	mid_length = 80
+	start_sound = 'sound/weather/rainstorm/outside/active_start.ogg'
+	start_length = 130
+	end_sound = 'sound/weather/rainstorm/outside/active_end.ogg'
+	volume = 80
+
+/datum/looping_sound/active_inside_rain_storm
+	mid_sounds = list(
+		'sound/weather/rainstorm/inside/active_mid.ogg'=1)
+	mid_length = 80
+	start_sound = 'sound/weather/rainstorm/inside/active_start.ogg'
+	start_length = 130
+	end_sound = 'sound/weather/rainstorm/inside/active_end.ogg'
+	volume = 60
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 /datum/looping_sound/rad_alert_inside
