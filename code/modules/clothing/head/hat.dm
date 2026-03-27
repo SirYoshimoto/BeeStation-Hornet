@@ -183,3 +183,59 @@
 		inhand_icon_state = initial(inhand_icon_state)
 		earflaps_down = TRUE
 		to_chat(user, span_notice("You lower the ear flaps on the ushanka."))
+
+/obj/item/clothing/head/sidecap
+	name = "sidecap"
+	desc = "A stylish sidecap."
+	icon = 'icons/obj/clothing/head/hats.dmi'
+	worn_icon = 'icons/mob/clothing/head/sidecap.dmi'
+	icon_state = "sidecap"
+	inhand_icon_state = "sidecap"
+
+/obj/item/clothing/head/sidecap/sec
+	name = "security sidecap"
+	desc = "A red sidecap with white piping for security officers."
+	icon_state = "sidecap_sec"
+	inhand_icon_state = "sidecap_sec"
+
+/obj/item/clothing/head/sidecap/engi
+	name = "engineering sidecap"
+	desc = "A yellow sidecap with orange piping for engineers."
+	icon_state = "sidecap_engi"
+	inhand_icon_state = "sidecap_engi"
+
+/obj/item/clothing/head/sidecap/atmos
+	name = "atmospherics sidecap"
+	desc = "An orange sidecap with teal piping for atmospherics technicians."
+	icon_state = "sidecap_engi"
+	inhand_icon_state = "sidecap_atmos"
+
+/obj/item/clothing/head/sidecap/sci
+	name = "science sidecap"
+	desc = "A white sidecap with purple piping for scientists."
+	icon_state = "sidecap_sci"
+	inhand_icon_state = "sidecap_sci"
+
+/obj/item/clothing/head/sidecap/cargo
+	name = "cargo sidecap"
+	desc = "A  sidecap with  piping for cargo technicians."
+	icon_state = "sidecap_carg"
+	inhand_icon_state = "sidecap_carg"
+
+/obj/item/clothing/head/sidecap/medical
+	name = "medical sidecap"
+	desc = "A white sidecap with blue piping for medical doctors."
+	icon_state = "sidecap_medic"
+	inhand_icon_state = "sidecap_medic"
+
+/obj/item/clothing/head/sidecap/syndie
+	name = "syndicate sidecap"
+	desc = "A suspicious black sidecap with white piping."
+	icon_state = "sidecap_syndie"
+	inhand_icon_state = "sidecap_syndie"
+
+/obj/item/clothing/head/sidecap/centcom
+	name = "centcom sidecap"
+	desc = "A green sidecap with white piping for centcom officers."
+	icon_state = "sidecap_centcom"
+	inhand_icon_state = "sidecap_centcom"
