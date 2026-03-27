@@ -302,7 +302,7 @@
 /obj/item/stack/tile/mineral/brick
 	name = "clay bricks"
 	singular_name = "clay brick"
-	desc = "Solid clay bricks, ready for throwing at someones head."
+	desc = "Fired clay bricks, ready for throwing at someones head."
 	icon_state = "tile-brick"
 	inhand_icon_state = "tile-brick"
 	turf_type = /turf/open/floor/brick

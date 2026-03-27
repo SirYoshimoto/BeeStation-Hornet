@@ -547,7 +547,7 @@
 //turf/open/floor/cobblestone
 //	name = "cobblestone"
 //	icon_state = "cobble"
-//	desc = "."
+//	desc = "Some rocks cobbled together to form a path of sorts."
 //	floor_tile = /obj/item/stack/tile/mineral/cobble
 //	barefootstep = FOOTSTEP_HARD_BAREFOOT
 //	clawfootstep = FOOTSTEP_HARD_CLAW
