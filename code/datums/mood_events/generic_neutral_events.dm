@@ -68,3 +68,7 @@
 /datum/mood_event/aquarium_positive
 	description = span_moodneutral("Watching fish in aquarium is calming.")
 	timeout = 1 MINUTES
+
+/datum/mood_event/wet
+	description = span_moodneutral("I've gotten covered in water, it feels nice.")
+	timeout = 1 MINUTES
