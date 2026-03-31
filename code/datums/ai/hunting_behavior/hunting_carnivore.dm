@@ -1,6 +1,6 @@
 /datum/ai_planning_subtree/find_and_hunt_target/carnivore
 	hunt_range = 3
-	hunt_targets = list(/mob/living/basic/eco_animals/hare_eco,)
+	hunt_targets = list(/mob/living/basic/biosystem_animals/hare_bio,)
 	hunting_behavior = /datum/ai_behavior/hunt_target/carnivore
 
 /datum/ai_behavior/hunt_target/carnivore
