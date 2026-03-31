@@ -1,4 +1,4 @@
-/mob/living/basic/eco_animals/hare_eco
+/mob/living/basic/biosystem_animals/hare_bio
 	name = "\improper hare"
 	desc = "A wild hare."
 	gender = PLURAL
@@ -6,7 +6,7 @@
 	health = 20
 	maxHealth = 20
 	speed = 2.50
-	icon = 'icons/mob/ecosystem/eco_animals.dmi'
+	icon = 'icons/mob/biosystem/biosystem_animals.dmi'
 	icon_state = "hare"
 	icon_living = "hare"
 	icon_dead = "hare_dead"
@@ -24,13 +24,13 @@
 	attack_verb_simple = "kick"
 	pass_flags = PASSTABLE | PASSMOB
 	mob_size = MOB_SIZE_SMALL
-	ai_controller = /datum/ai_controller/basic_controller/hare_eco
+	ai_controller = /datum/ai_controller/basic_controller/hare_bio
 
-/mob/living/basic/eco_animals/hare_eco/Initialize()
+/mob/living/basic/biosystem_animals/hare_bio/Initialize()
     . = ..()
-    apply_status_effect(/datum/status_effect/eco_life)
+    apply_status_effect(/datum/status_effect/bio_life)
 
-/datum/ai_controller/basic_controller/hare_eco
+/datum/ai_controller/basic_controller/hare_bio
 	blackboard = list()
 
 	ai_movement = /datum/ai_movement/basic_avoidance

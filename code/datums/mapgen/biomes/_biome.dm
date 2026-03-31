@@ -162,6 +162,37 @@
 /datum/biome/frostmountain
 	turf_type = /turf/closed/mineral/snowmountain/cavern
 
+//Biosphere system Forest
+/datum/biome/aridforest
+	turf_type = /turf/open/floor/plating/ironsand
+	flora_types = list(/obj/structure/flora/ausbushes/reedbush, /obj/structure/flora/ausbushes/sparsegrass)
+	flora_density = 6
+
+/datum/biome/thornforest
+	turf_type = /turf/open/floor/plating/dirt/jungle/wasteland
+	flora_types = list(/obj/structure/flora/ausbushes/grassybush,/obj/structure/flora/ausbushes/stalkybush,/obj/structure/flora/ausbushes/lavendergrass,/obj/structure/flora/ausbushes/sparsegrass)
+	flora_density = 15
+
+/datum/biome/woodland
+	turf_type = /turf/open/floor/plating/dirt
+	flora_types = list(/obj/structure/flora/tree,/obj/structure/flora/ausbushes/genericbush,/obj/structure/flora/ausbushes/sunnybush,/obj/structure/flora/ausbushes/fullgrass,/obj/structure/flora/ausbushes/reedbush,/obj/structure/flora/junglebush,/obj/structure/flora/junglebush/large)
+	flora_density = 40
+
+/datum/biome/moistforest
+	turf_type = /turf/open/floor/plating/dirt/jungle/dark
+	flora_types = list(/obj/structure/flora/tree,/obj/structure/flora/ausbushes,/obj/structure/flora/rock/pile,/obj/structure/flora/junglebush,/obj/structure/flora/junglebush/large)
+	flora_density = 30
+
+/datum/biome/rainforest
+	turf_type = /turf/open/floor/plating/dirt/dark
+	flora_types = list(/obj/structure/flora/tree,/obj/structure/flora/ausbushes,/obj/structure/flora/rock,/obj/structure/flora/rock/jungle,/obj/structure/flora/junglebush,/obj/structure/flora/junglebush/large)
+	flora_density = 40
+
+/datum/biome/rainforest/dense
+	flora_density = 70
+
+
+
 //island
 /datum/biome/grassedge
 	flora_density = 50

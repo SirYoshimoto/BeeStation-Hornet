@@ -23,7 +23,7 @@
 	end_sound = 'sound/ambience/acidrain_end.ogg'
 
 	///Made for Vulkan, echo is a placeholder in this case
-	area_type = /area
+	area_type = /area/biosystem
 	protect_indoors = TRUE
 	target_trait = ZTRAIT_RAINSTORM
 
@@ -34,7 +34,4 @@
 	probability = 10
 
 
-/datum/weather/rain_storm/weather_act_mob(mob/living/L)
-	//L.mood_event(/datum/mood_event/wet)
-	L.adjust_eye_blur(rand(0 SECONDS, 2 SECONDS))
-
+/datum/weather/rain_storm/

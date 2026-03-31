@@ -1,4 +1,4 @@
-/mob/living/basic/eco_animals/komodo_eco
+/mob/living/basic/biosystem_animals/komodo_bio
 	name = "\improper komodo dragon"
 	desc = "A big strong lizard that has a taste for flesh."
 	gender = PLURAL
@@ -6,7 +6,7 @@
 	health = 20
 	maxHealth = 20
 	speed = 2.50
-	icon = 'icons/mob/ecosystem/eco_animals.dmi'
+	icon = 'icons/mob/biosystem/biosystem_animals.dmi'
 	icon_state = "komodo"
 	icon_living = "komodo"
 	icon_dead = "komodo_dead"
@@ -23,13 +23,13 @@
 	attack_verb_continuous = "kicks"
 	attack_verb_simple = "kick"
 	mob_size = MOB_SIZE_LARGE
-	ai_controller = /datum/ai_controller/basic_controller/komodo_eco
+	ai_controller = /datum/ai_controller/basic_controller/komodo_bio
 
-/mob/living/basic/eco_animals/komodo_eco/Initialize()
+/mob/living/basic/biosystem_animals/komodo_bio/Initialize()
     . = ..()
-    apply_status_effect(/datum/status_effect/eco_life)
+    apply_status_effect(/datum/status_effect/bio_life)
 
-/datum/ai_controller/basic_controller/komodo_eco
+/datum/ai_controller/basic_controller/komodo_bio
 	blackboard = list()
 
 	ai_movement = /datum/ai_movement/basic_avoidance

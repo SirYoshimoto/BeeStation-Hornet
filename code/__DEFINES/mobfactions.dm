@@ -82,7 +82,7 @@
 /// Diona nymphs
 #define FACTION_DIONA "diona"
 
-// Ecosystem factions
+// Biosystem factions
 
 ///Carnivores, eats herbivores
 #define FACTION_CARNIVORE "carnivore"

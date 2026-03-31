@@ -1,0 +1,10 @@
+{
+	"map_name": "Biosphere station",
+	"map_link": "None",
+	"map_path": "map_files/debug",
+	"map_file": "biostation.dmm",
+	"planetary_station": "true",
+	"planet_name": "BioSphere test 13",
+	"planet_radius": "100",
+	"shuttles": {}
+}

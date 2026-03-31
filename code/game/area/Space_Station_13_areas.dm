@@ -108,6 +108,18 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 	name = "paradise surface grass"
 	map_generator = /datum/map_generator/grass_generator
 
+//BIOSPHERE SSYSTEM AREA, if you want an area to have biosystem effects, stick em under this.
+/area/biosystem
+	name = "biosystem valid area"
+	icon_state = "biosystem"
+	outdoors = TRUE
+	area_flags = UNIQUE_AREA
+	requires_power = FALSE
+
+/area/biosystem/forest
+	name = "paradise surface"
+	map_generator = /datum/map_generator/biosystem/forest_generator
+
 
 //STATION13
 //Docking Areas

@@ -1,4 +1,4 @@
-/*This file contains various ai behaviour for ecosystem animals.
+/*This file contains various ai behaviour for biosphere system animals.
 Hunting ai for herbivores and carnivores is in \code\datums\ai\hunting_behavior\
 I forgot stuff I was going to add in here but I know It'll come in handy later for me - dryos
 */
@@ -12,11 +12,11 @@ I forgot stuff I was going to add in here but I know It'll come in handy later f
 
 //EXPLORING/WALKING//
 
-/datum/idle_behavior/idle_eco_walk
+/datum/idle_behavior/idle_bio_walk
 	///Chance that the mob random walks per second
 	var/walk_chance = 10
 
-/datum/idle_behavior/idle_eco_walk/perform_idle_behavior(delta_time, datum/ai_controller/controller)
+/datum/idle_behavior/idle_bio_walk/perform_idle_behavior(delta_time, datum/ai_controller/controller)
 	. = ..()
 	var/mob/living/living_pawn = controller.pawn
 	if(LAZYLEN(living_pawn.do_afters))
@@ -29,15 +29,15 @@ I forgot stuff I was going to add in here but I know It'll come in handy later f
 			return
 		living_pawn.Move(destination_turf, move_dir)
 
-/datum/idle_behavior/idle_eco_walk/less_walking
+/datum/idle_behavior/idle_bio_walk/less_walking
 	walk_chance = 10
 
 /// Only walk if we don't have a target
-/datum/idle_behavior/idle_eco_walk/no_target
+/datum/idle_behavior/idle_bio_walk/no_target
 	/// Where do we look for a target?
 	var/target_key = BB_BASIC_MOB_CURRENT_TARGET
 
-/datum/idle_behavior/idle_eco_walk/no_target/perform_idle_behavior(seconds_per_tick, datum/ai_controller/controller)
+/datum/idle_behavior/idle_bio_walk/no_target/perform_idle_behavior(seconds_per_tick, datum/ai_controller/controller)
 	if (!controller.blackboard_key_exists(target_key))
 		return
 	return ..()
