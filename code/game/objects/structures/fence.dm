@@ -17,7 +17,7 @@
 	anchored = TRUE
 
 	icon = 'icons/obj/fence.dmi'
-	icon_state = "straight"
+	icon_state = "fence_straight"
 
 	var/cuttable = TRUE
 	var/hole_size= NO_HOLE
@@ -38,15 +38,15 @@
 			. += "\The [src] has been completely cut through."
 
 /obj/structure/fence/end
-	icon_state = "end"
+	icon_state = "fence_end"
 	cuttable = FALSE
 
 /obj/structure/fence/corner
-	icon_state = "corner"
+	icon_state = "fence_corner"
 	cuttable = FALSE
 
 /obj/structure/fence/post
-	icon_state = "post"
+	icon_state = "fence_post"
 	cuttable = FALSE
 
 /obj/structure/fence/cut/medium
@@ -108,7 +108,7 @@
 /obj/structure/fence/door
 	name = "fence door"
 	desc = "Not very useful without a real lock."
-	icon_state = "door_closed"
+	icon_state = "fence_door_closed"
 	cuttable = FALSE
 	var/open = FALSE
 
@@ -118,7 +118,7 @@
 	update_door_status()
 
 /obj/structure/fence/door/opened
-	icon_state = "door_opened"
+	icon_state = "fence_door_opened"
 	open = TRUE
 	density = FALSE
 
@@ -136,10 +136,37 @@
 	playsound(src, 'sound/machines/click.ogg', 100, TRUE)
 
 /obj/structure/fence/door/proc/update_door_status()
-	icon_state = density ? "door_closed" : "door_opened"
+	icon_state = density ? "fence_door_closed" : "fence_door_opened"
 
 /obj/structure/fence/door/proc/can_open(mob/user)
 	return TRUE
+
+//WOODEN FENCE
+
+/obj/structure/fence/wood
+	name = "wooden fence"
+	desc = "A wooden fence. Still won't stop your neighbor from looking in."
+	icon = 'icons/obj/fence.dmi'
+	icon_state = "wood_fence_straight"
+	cuttable = FALSE
+
+/obj/structure/fence/wood/corner
+	icon_state = "wood_fence_corner"
+	cuttable = FALSE
+
+/obj/structure/fence/door/wood
+	name = "wooden fence door"
+	desc = "Not very useful without a real lock."
+	icon_state = "wood_fence_door_closed"
+
+/obj/structure/fence/door/wood/Initialize(mapload)
+	. = ..()
+
+	update_door_status()
+
+/obj/structure/fence/door/opened/wood
+	icon_state = "wood_fence_door_opened"
+
 
 #undef CUT_TIME
 #undef CLIMB_TIME
