@@ -17,7 +17,7 @@
 
 	custom_materials = list(/datum/material/iron=50, /datum/material/glass=50)
 
-	flags_1 = CONDUCT_1
+	obj_flags = CONDUCTS_ELECTRICITY
 	item_flags = NOBLUDGEON
 	slot_flags = ITEM_SLOT_BELT
 	usesound = 'sound/effects/spray2.ogg'
@@ -346,7 +346,7 @@
 		if("pick custom color")
 			if(supports_custom_color)
 				var/chosen_color = tgui_color_picker(usr, "Pick new color", "[src]", COLOR_YELLOW)
-				if(!chosen_color || QDELETED(src) || usr.incapacitated() || !usr.is_holding(src))
+				if(!chosen_color || QDELETED(src) || usr.incapacitated || !usr.is_holding(src))
 					return
 				stored_custom_color = chosen_color
 				stored_color = chosen_color

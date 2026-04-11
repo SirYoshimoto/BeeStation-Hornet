@@ -27,7 +27,7 @@ GLOBAL_VAR(clockcult_eminence)
 	// TODO: ui_name = "AntagInfoClockCult"
 	antag_moodlet = /datum/mood_event/cult
 	banning_key = ROLE_SERVANT_OF_RATVAR
-	required_living_playtime = 4
+	required_living_playtime = 6
 
 	//The class of the servant
 	var/datum/action/innate/clockcult/transmit/transmit_spell
@@ -175,7 +175,7 @@ GLOBAL_VAR(clockcult_eminence)
 		. = is_convertable_to_clockcult(new_owner.current)
 
 /datum/antagonist/servant_of_ratvar/create_team()
-	for(var/datum/antagonist/servant_of_ratvar/H in GLOB.antagonists)
+	for(var/datum/antagonist/servant_of_ratvar/H in GLOB.active_antagonists)
 		if(!H.owner)
 			continue
 		if(H.team)
