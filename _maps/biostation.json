@@ -6,5 +6,11 @@
 	"planetary_station": "true",
 	"planet_name": "BioSphere test 13",
 	"planet_radius": "100",
-	"shuttles": {}
-}
+	"shuttles": {},
+
+	"traits": [{"Up" : true, "Baseturf" : "/turf/open/floor/plating/dirt", "Linkage" : "Cross", "Gravity": true}],
+
+	"starlight": "cycle",
+	"starlight_colours": [
+		"#040412"]
+	}

@@ -2,38 +2,38 @@
 
 #define BIOFOREST_RANDOM_SQUARE_DRIFT 5
 
-/datum/map_generator/biosystem/forest_generator
+/datum/map_generator/biosystem/bioforest_generator
 	var/list/possible_biomes = list(
 	BIOME_LOW_HEAT = list(
-		BIOME_LOW_HUMIDITY = /datum/biome/aridforest,
-		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/thornforest,
+		BIOME_LOW_HUMIDITY = /datum/biome/woodland,
+		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/woodland,
 		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/woodland,
-		BIOME_HIGH_HUMIDITY = /datum/biome/rainforest
+		BIOME_HIGH_HUMIDITY = /datum/biome/woodland
 		),
 	BIOME_LOWMEDIUM_HEAT = list(
-		BIOME_LOW_HUMIDITY = /datum/biome/aridforest,
+		BIOME_LOW_HUMIDITY = /datum/biome/woodland,
 		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/woodland,
-		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/moistforest,
-		BIOME_HIGH_HUMIDITY = /datum/biome/rainforest
+		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/woodland,
+		BIOME_HIGH_HUMIDITY = /datum/biome/woodland
 		),
 	BIOME_HIGHMEDIUM_HEAT = list(
-		BIOME_LOW_HUMIDITY = /datum/biome/aridforest,
+		BIOME_LOW_HUMIDITY = /datum/biome/woodland,
 		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/woodland,
-		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/moistforest,
-		BIOME_HIGH_HUMIDITY = /datum/biome/rainforest/dense
+		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/woodland,
+		BIOME_HIGH_HUMIDITY = /datum/biome/woodland
 		),
 	BIOME_HIGH_HEAT = list(
-		BIOME_LOW_HUMIDITY = /datum/biome/aridforest,
+		BIOME_LOW_HUMIDITY = /datum/biome/woodland,
 		BIOME_LOWMEDIUM_HUMIDITY = /datum/biome/woodland,
-		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/rainforest,
-		BIOME_HIGH_HUMIDITY = /datum/biome/rainforest/dense
+		BIOME_HIGHMEDIUM_HUMIDITY = /datum/biome/woodland,
+		BIOME_HIGH_HUMIDITY = /datum/biome/woodland
 		)
 	)
 	///Used to select "zoom" level into the perlin noise, higher numbers result in slower transitions
-	var/perlin_zoom = 65
+	var/perlin_zoom = 30
 
 ///Seeds the rust-g perlin noise with a random number.
-/datum/map_generator/biosystem/forest_generator/generate_terrain(list/turfs, area/generate_in)
+/datum/map_generator/biosystem/bioforest_generator/generate_terrain(list/turfs, area/generate_in)
 	. = ..()
 	var/height_seed = rand(0, 50000)
 	var/humidity_seed = rand(0, 50000)
@@ -74,7 +74,9 @@
 					humidity_level = BIOME_HIGH_HUMIDITY
 			selected_biome = possible_biomes[heat_level][humidity_level]
 		else //Over 0.85; It's a mountain
-			selected_biome = /datum/biome/rainforest/dense
+			selected_biome = /datum/biome/mountain
 		selected_biome = SSmapping.biomes[selected_biome] //Get the instance of this biome from SSmapping
 		selected_biome.generate_turf(gen_turf)
 		CHECK_TICK
+
+#undef BIOFOREST_RANDOM_SQUARE_DRIFT

@@ -5,7 +5,7 @@
 	mob_biotypes = MOB_ORGANIC | MOB_BEAST
 	health = 20
 	maxHealth = 20
-	speed = 2.50
+	speed = 0.5
 	icon = 'icons/mob/biosystem/biosystem_animals.dmi'
 	icon_state = "hare"
 	icon_living = "hare"
@@ -36,3 +36,7 @@
 	ai_movement = /datum/ai_movement/basic_avoidance
 	idle_behavior = /datum/idle_behavior/idle_random_walk
 	planning_subtrees = list(/datum/ai_planning_subtree/find_and_hunt_target/herbivore,)
+
+/mob/living/basic/biosystem_animals/hare_bio/Initialize()
+    . = ..()
+    apply_status_effect(/datum/status_effect/bio_rot)

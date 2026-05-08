@@ -110,15 +110,16 @@ NOTE: there are two lists of areas in the end of this file: centcom and station 
 
 //BIOSPHERE SSYSTEM AREA, if you want an area to have biosystem effects, stick em under this.
 /area/biosystem
-	name = "biosystem valid area"
+	name = "biosystem"
 	icon_state = "biosystem"
 	outdoors = TRUE
-	area_flags = UNIQUE_AREA
+	area_flags = VALID_TERRITORY | UNIQUE_AREA | BLOBS_ALLOWED
+	camera_networks = list(CAMERA_NETWORK_STATION)
 	requires_power = FALSE
 
 /area/biosystem/forest
-	name = "paradise surface"
-	map_generator = /datum/map_generator/biosystem/forest_generator
+	name = "biosystem forest"
+	map_generator = /datum/map_generator/biosystem/bioforest_generator
 
 
 //STATION13

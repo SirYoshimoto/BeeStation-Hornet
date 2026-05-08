@@ -3,27 +3,28 @@
 	desc = "A big strong lizard that has a taste for flesh."
 	gender = PLURAL
 	mob_biotypes = MOB_ORGANIC | MOB_REPTILE
-	health = 20
-	maxHealth = 20
-	speed = 2.50
+	health = 50
+	maxHealth = 50
+	speed = 1.25
 	icon = 'icons/mob/biosystem/biosystem_animals.dmi'
 	icon_state = "komodo"
 	icon_living = "komodo"
 	icon_dead = "komodo_dead"
-	speak_emote = list("sniffles","twitches")
+	speak_emote = list("hisses","lays still")
 	butcher_results = list(/obj/item/food/meat/slab = 1)
 	can_be_held = TRUE
 	density = FALSE
 	response_help_simple = "pet"
-	response_disarm_continuous = "gently pushes aside"
-	response_disarm_simple = "gently push aside"
+	response_disarm_continuous = "pushes aside"
+	response_disarm_simple = "push aside"
 	response_harm_continuous = "kicks"
 	response_harm_simple = "kick"
 	faction = list(FACTION_CARNIVORE)
-	attack_verb_continuous = "kicks"
-	attack_verb_simple = "kick"
+	attack_verb_continuous = "bites"
+	attack_verb_simple = "bites"
 	mob_size = MOB_SIZE_LARGE
 	ai_controller = /datum/ai_controller/basic_controller/komodo_bio
+	melee_damage = 3
 
 /mob/living/basic/biosystem_animals/komodo_bio/Initialize()
     . = ..()

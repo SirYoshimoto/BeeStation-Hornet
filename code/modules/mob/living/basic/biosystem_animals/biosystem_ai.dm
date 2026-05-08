@@ -12,6 +12,7 @@ I forgot stuff I was going to add in here but I know It'll come in handy later f
 
 //EXPLORING/WALKING//
 
+/*
 /datum/idle_behavior/idle_bio_walk
 	///Chance that the mob random walks per second
 	var/walk_chance = 10
@@ -41,3 +42,4 @@ I forgot stuff I was going to add in here but I know It'll come in handy later f
 	if (!controller.blackboard_key_exists(target_key))
 		return
 	return ..()
+*/
