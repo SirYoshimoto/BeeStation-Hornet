@@ -228,3 +228,12 @@ Unless you know what you're doing, only use the first three numbers. They're in 
 	greyscale_colors = "#d95802"
 	categories = list(MAT_CATEGORY_ORE = TRUE, MAT_CATEGORY_RIGID = TRUE, MAT_CATEGORY_BASE_RECIPES = TRUE)
 	sheet_type = /obj/item/stack/sheet/mineral/copper
+
+/datum/material/conc_bag
+	name = "concrete"
+	desc = "Concrete, the stuff of construction, silicosis, and feet coverings."
+	color = "#7e7c72"
+	greyscale_colors = "#7e7c72"
+	categories = list(MAT_CATEGORY_BASE_RECIPES = TRUE)
+	sheet_type = /obj/item/stack/sheet/conc_bag
+	value_per_unit = 0.07

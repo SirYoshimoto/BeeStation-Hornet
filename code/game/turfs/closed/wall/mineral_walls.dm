@@ -91,6 +91,26 @@
 	max_integrity = 150
 	damage_deflection = 0
 
+
+/*Standard concrete construction steps for all concrete stuff:
+Step 1: Make girder/frame/mold.
+Step 2: Fill girder/frame/mold with concrete bags.
+Step 3: Fill concrete girder with water.
+Step 4: Wait a certain amount of time for it to harden.*/
+/turf/closed/wall/mineral/concrete
+	name = "concrete wall"
+	desc = "A Reinforced concrete wall. Sturdy and durable, will probably outlive your bloodline."
+	icon = 'icons/turf/walls/concrete_wall.dmi'
+	icon_state = "concrete_wall-0"
+	base_icon_state = "concrete_wall"
+	sheet_type = /obj/item/stack/sheet/conc_bag
+	explosion_block = 0
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_CONCRETE_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_CONCRETE_WALLS)
+	max_integrity = 150
+	damage_deflection = 0
+
 /turf/closed/wall/mineral/uranium
 	article = "a"
 	name = "uranium wall"

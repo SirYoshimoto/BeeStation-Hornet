@@ -33,6 +33,7 @@
 		/datum/material/uranium,
 		/datum/material/bananium,
 		/datum/material/titanium,
+		/datum/material/conc_bag,
 		/datum/material/bluespace
 	)
 	AddComponent(/datum/component/material_container, allowed_materials, INFINITY, MATCONTAINER_NO_INSERT|BREAKDOWN_FLAGS_RECYCLER)

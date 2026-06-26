@@ -258,6 +258,8 @@ GLOBAL_LIST_INIT(pointed_types, typecacheof(list(
 
 #define is_reagent_container(O) (istype(O, /obj/item/reagent_containers))
 
+#define is_concrete(O) (istype(O, /obj/item/stack/sheet/conc_bag))
+
 //Assemblies
 #define isassembly(O) (istype(O, /obj/item/assembly))
 

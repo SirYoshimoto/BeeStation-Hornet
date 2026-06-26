@@ -1643,6 +1643,15 @@
 	contains = list(/obj/item/stack/sheet/mineral/sandstone/fifty)
 	crate_name = "sandstone blocks crate"
 
+/datum/supply_pack/material/concrete50
+	name = "50 Concrete bags"
+	desc = "A heavy crate containing 50 bags of specially made SPA-CRETE, enough to cast the entire crew in concrete!"
+	max_supply = 5
+	cost = 1000
+	contains = list(/obj/item/paper/guides/concrete_useage,
+					/obj/item/stack/sheet/conc_bag/fifty)
+	crate_name = "concrete bags crate"
+
 /datum/supply_pack/materials/wood50
 	name = "50 Wood Planks"
 	desc = "Turn cargo's boring metal groundwork into beautiful panelled flooring and much more with fifty wooden planks!"

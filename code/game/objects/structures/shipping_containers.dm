@@ -8,6 +8,7 @@
 	density = TRUE
 	anchored = TRUE
 	bound_width = 96
+	greyscale_colors = "#FFFFFF"
 
 /obj/structure/shipping_container/conarex
 	name = "\improper Conarex Aeronautics shipping container"

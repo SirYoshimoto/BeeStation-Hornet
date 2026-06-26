@@ -3,6 +3,8 @@ Miscellaneous material sheets
 	Contains:
 		- Wax (even if it's organic, shh)
 		- Sandbags
+		- Concrete bags
+		- Concrete sheets
 		- Snow
 		- Plastic
 		- Cartboard
@@ -33,13 +35,39 @@ Miscellaneous material sheets
 	icon = 'icons/obj/stacks/miscellaneous.dmi'
 	novariants = TRUE
 	merge_type = /obj/item/stack/sheet/conc_bag
-
-GLOBAL_LIST_INIT(concbag_recipes, list ( \
-	new/datum/stack_recipe("concrete slabs", /obj/item/stack/tile/mineral/conc_slab, 1, 4, 20, time = 4 SECONDS, crafting_flags = NONE, category = CAT_TILES), \
-	))
+	sheettype = "conc_bag"
+	mats_per_unit = list(/datum/material/conc_bag=MINERAL_MATERIAL_AMOUNT)
+	merge_type = /obj/item/stack/sheet/conc_bag
+	material_type = /datum/material/conc_bag
+	walltype = /turf/closed/wall/mineral/concrete
 
 /obj/item/stack/sheet/conc_bag/get_recipes()
-	return GLOB.concbag_recipes
+	return GLOB.concrete_recipes
+
+/obj/item/stack/sheet/conc_bag/suicide_act(mob/living/carbon/user)	// Because why not?
+	user.visible_message(span_suicide("[user] begins pouring the \the [src] into [user.p_their()] mouth! It looks like [user.p_theyre()] trying to commit [user.p_their()] life as a statue forever!"))
+	if(iscarbon(user))
+		var/mob/living/carbon/C = user
+		C.petrify(INFINITY)
+		playsound(C.loc, 'sound/items/drink.ogg', rand(10,50), TRUE)
+		sleep(0.5 SECONDS)
+		C.gib_animation()
+		C.spawn_gibs()
+		C.spread_bodyparts()
+	return TOXLOSS
+
+
+/* Concrete sheets */
+/obj/item/stack/sheet/conc_sheet // I've gotten so confused between these and the tiles whilst making this, could I have clarified it? Maybe.
+	name = "concrete sheets"
+	icon_state = "sheet-conc"
+	singular_name = "concrete sheet"
+	icon = 'icons/obj/stacks/minerals.dmi'
+	novariants = TRUE
+	merge_type = /obj/item/stack/sheet/conc_sheet
+
+/obj/item/stack/sheet/conc_sheet/get_recipes()
+	return GLOB.concrete_sheet_recipes
 
 /* Sandbags */
 

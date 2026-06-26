@@ -526,8 +526,8 @@
 	max_integrity = 120
 
 /turf/open/floor/concrete/slab
-	icon_state = "sheet-conc_slab"
-	floor_tile = /obj/item/stack/tile/mineral/conc_slab
+	icon_state = "conc_slab"
+	floor_tile = /obj/item/stack/tile/mineral/conc_slab_tile
 
 /turf/open/floor/concrete/tile
 	icon_state = "conc_tiles"

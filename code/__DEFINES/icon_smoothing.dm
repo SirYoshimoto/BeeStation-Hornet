@@ -71,9 +71,9 @@ DEFINE_BITFIELD(smoothing_flags, list(
 #define SMOOTH_GROUP_MINERAL_WALLS S_TURF(28)			///turf/closed/mineral, /turf/closed/indestructible
 #define SMOOTH_GROUP_BOSS_WALLS S_TURF(29)				///turf/closed/indestructible/riveted/boss
 #define SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS S_TURF(30)	///turf/closed/wall/mineral/titanium/survival
-#define SMOOTH_GROUP_ELEVATED_PLASTEEL S_TURF(31)
-#define SMOOTH_GROUP_LOWERED_PLASTEEL S_TURF(32)
-#define SMOOTH_GROUP_FLOOR_BEACH S_TURF(33) 			///turf/open/floor/plating/beach/water
+#define SMOOTH_GROUP_ELEVATED_PLASTEEL S_TURF(32)
+#define SMOOTH_GROUP_LOWERED_PLASTEEL S_TURF(33)
+#define SMOOTH_GROUP_FLOOR_BEACH S_TURF(34) 			///turf/open/floor/plating/beach/water
 #define MAX_S_TURF SMOOTH_GROUP_LOWERED_PLASTEEL //Always match this value with the one above it.
 #define S_OBJ(num) (MAX_S_TURF + 1 + num)
 /* /obj included */
@@ -95,6 +95,7 @@ DEFINE_BITFIELD(smoothing_flags, list(
 #define SMOOTH_GROUP_BAMBOO_WALLS S_OBJ(16)			//![/turf/closed/wall/mineral/bamboo, /obj/structure/falsewall/bamboo]
 #define SMOOTH_GROUP_COPPER_WALLS S_OBJ(17)			///turf/closed/wall/mineral/copper, /obj/structure/falsewall/copper
 #define SMOOTH_GROUP_BRASS_WALLS S_OBJ(18)				///turf/closed/wall/clockwork, /obj/sturcture/falsewall/brass
+#define SMOOTH_GROUP_CONCRETE_WALLS S_OBJ(19)			//!turf/closed/wall/mineral/concrete, /obj/structure/falsewall/concrete,
 
 #define SMOOTH_GROUP_PAPERFRAME S_OBJ(20)				///obj/structure/window/paperframe, /obj/structure/mineral_door/paperframe
 #define SMOOTH_GROUP_CATWALK  S_OBJ(22) 				///obj/structure/lattice/catwalk
@@ -128,7 +129,7 @@ DEFINE_BITFIELD(smoothing_flags, list(
 #define SMOOTH_GROUP_SHUTTLE_PARTS S_OBJ(66)			///obj/structure/window/shuttle, /obj/structure/window/reinforced/plasma/plastitanium, /turf/closed/indestructible/opsglass, /obj/structure/shuttle
 #define SMOOTH_GROUP_CLEANABLE_DIRT	S_OBJ(67)			///obj/effect/decal/cleanable/dirt
 #define SMOOTH_GROUP_COMPUTERS S_OBJ(68)				///obj/machinery/computer
-
+#define SMOOTH_GROUP_FENCES S_OBJ(69)					///obj/structure/fence
 //LIQUIDS
 
 #define SMOOTH_GROUP_WATER S_OBJ(73) ///obj/effect/abstract/liquid_turf
