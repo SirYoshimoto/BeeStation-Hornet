@@ -764,6 +764,10 @@
 	suffix = "tiny"
 	name = "arrival shuttle (Tiny)"
 
+//datum/map_template/shuttle/arrival/vulkan
+//	suffix = "vulkan"
+//	name = "arrival shuttle (Vulkan)"
+
 /datum/map_template/shuttle/arrival/omega
 	suffix = "omega"
 	name = "arrival shuttle (Omega)"

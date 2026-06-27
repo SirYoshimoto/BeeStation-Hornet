@@ -36,3 +36,40 @@
 	default_gravity = STANDARD_GRAVITY
 	name = "Test Room"
 	icon_state = "test_room"
+
+
+//OUTDOOR DEPARTMENT AREAS FOR PLANETS
+/area/outdoor
+	outdoors = TRUE
+	static_lighting = TRUE
+	base_lighting_alpha = 255
+	default_gravity = STANDARD_GRAVITY
+	area_flags = UNIQUE_AREA | FLORA_ALLOWED
+// engi/atmos
+/area/outdoor/atmosoutside
+	name = "Atmosphereics Outside"
+	icon_state = "atmos_outside"
+
+// security
+/area/outdoor/prisonyard
+	name = "Prison Yard"
+	icon_state = "sec_prison_yard"
+
+/area/outdoor/trainingyard
+	name = "Training Yard"
+	icon_state = "trainyard"
+
+// cargo
+/area/outdoor/cargo_bay
+	name = "Outdoor Cargo Bay"
+	icon_state = "cargo_bay_outside"
+
+// science
+/area/outdoor/xenooutside
+	name = "Xenobiology Outdoor Cells"
+	icon_state = "xeno_outside"
+
+// service
+/area/outdoor/farm
+	name = "Farm"
+	icon_state = "farm"

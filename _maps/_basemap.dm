@@ -12,6 +12,7 @@
 // #define FORCE_MAP "echostation"
 // #define FORCE_MAP "runtimestation"
 // #define FORCE_MAP "multiz_debug"
+#define FORCE_MAP "vulkanstation"
 
 #include "map_files\generic\CentCom.dmm"
 
@@ -27,6 +28,7 @@
 		#include "map_files\RadStation\RadStation.dmm"
 		#include "map_files\EchoStation\EchoStation.dmm"
 		#include "map_files\CardinalStation\CardinalStation.dmm"
+		#include "map_files\VulkanStation\VulkanStation.dmm"
 	#endif
 	#ifdef ALL_TEMPLATES
 		#include "templates.dm"

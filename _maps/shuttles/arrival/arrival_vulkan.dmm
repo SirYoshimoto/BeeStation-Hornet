@@ -1,0 +1,67 @@
+"a" = (/obj/structure/chair/fancy/shuttle{dir = 4},/turf/open/floor/monotile/dark,/area/template_noop)
+"b" = (/obj/structure/railing/perspective/black{dir = 8},/obj/structure/lattice/catwalk,/turf/template_noop,/area/template_noop)
+"c" = (/obj/structure/window/depleteduranium{dir = 8},/obj/structure/shuttle/engine/heater{dir = 8},/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/plating,/area/template_noop)
+"d" = (/obj/machinery/requests_console{department = "Arrival shuttle"; name = "Arrivals Shuttle console"; pixel_y = 30},/obj/machinery/door/airlock/shuttle{name = "Arrival Shuttle Airlock"},/obj/structure/fans/tiny,/turf/open/floor/monofloor,/area/template_noop)
+"e" = (/turf/open/floor/mineral/plastitanium,/area/template_noop)
+"f" = (/obj/structure/chair/fancy/shuttle{dir = 4},/obj/machinery/light,/turf/open/floor/monotile/dark,/area/template_noop)
+"g" = (/obj/structure/shuttle/engine/large/chopped/top_right,/turf/open/floor/plating/airless,/area/template_noop)
+"h" = (/obj/structure/closet/emcloset,/turf/open/floor/mineral/plastitanium,/area/template_noop)
+"i" = (/obj/machinery/door/airlock/grunge,/turf/open/floor/monotile/steel,/area/template_noop)
+"j" = (/obj/structure/sign/nanotrasen,/turf/closed/wall/mineral/titanium,/area/template_noop)
+"k" = (/obj/effect/spawner/structure/window/reinforced/shuttle,/turf/open/floor/plating,/area/template_noop)
+"l" = (/obj/machinery/vending/wallmed{name = "Emergency NanoMed"; use_power = 0},/turf/closed/wall/mineral/plastitanium,/area/template_noop)
+"m" = (/obj/machinery/door/airlock/shuttle{name = "Arrival Shuttle Airlock"},/obj/structure/fans/tiny,/turf/open/floor/monofloor,/area/template_noop)
+"n" = (/obj/structure/railing/perspective/black{dir = 4},/obj/structure/lattice/catwalk,/turf/template_noop,/area/template_noop)
+"o" = (/turf/template_noop,/area/template_noop)
+"p" = (/obj/effect/decal/fakestairs/newstairs/left,/obj/structure/platform/warning{dir = 8},/turf/open/floor/mineral/titanium/blue,/area/template_noop)
+"r" = (/obj/effect/turf_decal/stripes/line,/obj/structure/shuttle/engine/large/chopped/bottom_right,/turf/open/floor/plating/airless,/area/template_noop)
+"s" = (/obj/structure/shuttle/engine/heater{dir = 1},/obj/effect/turf_decal/stripes/line,/obj/structure/window/depleteduranium{dir = 1},/turf/open/floor/plating,/area/template_noop)
+"t" = (/obj/structure/shuttle/engine/large/chopped/top_right{dir = 1},/turf/open/floor/plating/airless,/area/template_noop)
+"u" = (/obj/effect/decal/fakestairs/newstairs/left{dir = 1},/obj/structure/platform/warning{dir = 8},/turf/open/floor/mineral/titanium/blue,/area/template_noop)
+"v" = (/obj/effect/decal/fakestairs/newstairs/right,/obj/structure/platform/warning{dir = 4},/turf/open/floor/mineral/titanium/blue,/area/template_noop)
+"w" = (/obj/structure/window/depleteduranium{dir = 4},/obj/structure/shuttle/engine/heater{dir = 4},/obj/effect/turf_decal/stripes/line{dir = 8},/turf/open/floor/plating,/area/template_noop)
+"x" = (/obj/structure/chair/fancy/shuttle{dir = 4},/obj/machinery/light,/obj/item/radio/intercom{name = "Station Intercom (General)"; pixel_y = -29},/turf/open/floor/monotile/dark,/area/template_noop)
+"y" = (/obj/machinery/door/airlock/shuttle{name = "Arrival Shuttle Airlock"},/obj/structure/fans/tiny,/turf/open/floor/monotile/steel,/area/template_noop)
+"z" = (/obj/structure/shuttle/engine/propulsion{dir = 4},/turf/closed/wall/mineral/plastitanium,/area/template_noop)
+"A" = (/obj/structure/shuttle/engine/large/chopped/top_left{dir = 1},/turf/open/floor/plating/airless,/area/template_noop)
+"B" = (/obj/effect/turf_decal/stripes/line{dir = 8},/turf/open/floor/monofloor,/area/template_noop)
+"C" = (/turf/open/floor/monofloor,/area/template_noop)
+"D" = (/obj/docking_port/mobile/arrivals{dir = 4; width = 13; name = "Vulkan arrivals shuttle"},/turf/closed/wall/mineral/titanium,/area/template_noop)
+"E" = (/obj/structure/railing/perspective/black{dir = 1},/obj/structure/lattice/catwalk,/turf/template_noop,/area/template_noop)
+"F" = (/obj/effect/turf_decal/stripes/line{dir = 4},/turf/open/floor/plating,/area/template_noop)
+"G" = (/obj/machinery/status_display/ai,/turf/closed/wall/mineral/titanium,/area/template_noop)
+"H" = (/obj/structure/lattice/catwalk,/turf/template_noop,/area/template_noop)
+"I" = (/obj/machinery/light{dir = 4},/turf/open/floor/mineral/plastitanium,/area/template_noop)
+"J" = (/obj/structure/shuttle/engine/large/chopped/bottom_left{dir = 1},/obj/effect/turf_decal/stripes/line{dir = 5},/turf/open/floor/plating/airless,/area/template_noop)
+"K" = (/obj/structure/platform/warning/stair_cutoff,/obj/effect/decal/fakestairs/newstairs{dir = 8},/turf/open/floor/mineral/titanium/blue,/area/template_noop)
+"L" = (/obj/structure/railing/perspective/black,/obj/structure/lattice/catwalk,/turf/template_noop,/area/template_noop)
+"M" = (/obj/structure/table,/turf/open/floor/monofloor,/area/template_noop)
+"N" = (/obj/machinery/light{dir = 4},/turf/open/floor/monofloor,/area/template_noop)
+"O" = (/obj/structure/chair/fancy/shuttle{dir = 4},/obj/machinery/light{dir = 1},/turf/open/floor/monotile/dark,/area/template_noop)
+"P" = (/obj/effect/decal/fakestairs/newstairs{dir = 8},/obj/structure/platform/warning/stair_cutoff,/turf/open/floor/mineral/titanium/blue,/area/template_noop)
+"Q" = (/obj/effect/turf_decal/stripes/line{dir = 9},/obj/structure/shuttle/engine/large/chopped/bottom_right{dir = 1},/turf/open/floor/plating/airless,/area/template_noop)
+"R" = (/obj/structure/shuttle/engine/large/chopped/top_left,/turf/open/floor/plating/airless,/area/template_noop)
+"S" = (/turf/closed/wall/mineral/plastitanium,/area/template_noop)
+"T" = (/obj/effect/turf_decal/stripes/line,/obj/structure/shuttle/engine/large/chopped/bottom_left,/turf/open/floor/plating/airless,/area/template_noop)
+"U" = (/obj/structure/shuttle/engine/propulsion{dir = 8},/turf/open/floor/plating/airless,/area/template_noop)
+"V" = (/obj/structure/sign/nanotrasen,/turf/closed/wall/mineral/plastitanium,/area/template_noop)
+"W" = (/turf/closed/wall/mineral/titanium,/area/template_noop)
+"X" = (/obj/structure/shuttle/engine/propulsion{dir = 8},/turf/open/floor/plating,/area/template_noop)
+"Y" = (/obj/structure/shuttle/engine/heater,/obj/effect/turf_decal/stripes/line{dir = 1},/obj/structure/window/depleteduranium,/turf/open/floor/plating/airless,/area/template_noop)
+"Z" = (/obj/effect/decal/fakestairs/newstairs/right{dir = 1},/obj/structure/platform/warning{dir = 4},/turf/open/floor/mineral/titanium/blue,/area/template_noop)
+
+(1,1,1) = {"
+ooQJobHHnoQJooo
+oStAVWuZWVtASoo
+VSssSGyyWSssSSo
+XceeSOCCOahewzo
+WFeSSCCCCCCNWjE
+XcIlaCaMaMaCdKH
+DFeiBCaMaMaCkkH
+XcISaCaMaMaCmPH
+WFeSSCCCCCCNGjL
+UceeSfCCxaeewzo
+VSYYSGyyWSYYSSo
+oSRgVWpvWVRgSoo
+ooTrobHHnoTrooo
+"}
