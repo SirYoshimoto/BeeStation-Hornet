@@ -141,6 +141,8 @@ CREATION_TEST_IGNORE_SUBTYPES(/obj/structure/light_construct)
 						newlight = new /obj/machinery/light/built(loc)
 					if("bulb")
 						newlight = new /obj/machinery/light/small/built(loc)
+					if("lampbulb")
+						newlight = new /obj/machinery/light/lamppost/built(loc)
 				newlight.setDir(dir)
 				transfer_fingerprints_to(newlight)
 				if(cell)
@@ -180,3 +182,9 @@ CREATION_TEST_IGNORE_SUBTYPES(/obj/structure/light_construct)
 	fixture_type = "bulb"
 	sheets_refunded = 1
 
+/obj/structure/light_construct/lamppost
+	name = "iron lamp post"
+	icon = 'icons/obj/lamppost.dmi'
+	icon_state = "lampbulb-construct-stage1"
+	fixture_type = "lampbulb"
+	sheets_refunded = 5

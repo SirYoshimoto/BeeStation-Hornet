@@ -113,6 +113,10 @@
 				brightness = A.lighting_brightness_bulb
 				if(prob(5))
 					break_light_tube(1)
+			if("lampbulb")
+				brightness = A.lighting_brightness_bulb
+				if(prob(3))
+					break_light_tube(1)
 		if(!mapload)
 			spawn(1)
 				update(FALSE, FALSE, FALSE)
@@ -400,6 +404,11 @@
 			if("bulb")
 				newlight = new /obj/structure/light_construct/small(src.loc)
 				newlight.icon_state = "bulb-construct-stage[cur_stage]"
+
+			if("lampbulb")
+				newlight = new /obj/structure/light_construct/lamppost(src.loc)
+				newlight.icon_state = "lampbulb-construct-stage[cur_stage]"
+
 		newlight.setDir(src.dir)
 		newlight.stage = cur_stage
 		if(!disassembled)
