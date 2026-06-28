@@ -13,14 +13,6 @@
 	result_path = /obj/structure/light_construct/small
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
 
-//Don't actually need this item since it gets made directly to the tile via crafting, and it only fits onto walls, but its here anyways.
-/obj/item/wallframe/light_fixture/lamppost
-	name = "lamp post fixture frame"
-	icon = 'icons/obj/lamppost.dmi'
-	icon_state = "lampbulb-construct-item"
-	result_path = /obj/structure/light_construct/lamppost
-	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
-
 /obj/item/wallframe/light_fixture/try_build(turf/on_wall, user)
 	if(!..())
 		return

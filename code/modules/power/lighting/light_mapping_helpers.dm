@@ -72,30 +72,6 @@
 	nightshift_allowed = FALSE
 	brightness = 4
 
-// Lamp post fixtures
-
-/obj/machinery/light/lamppost
-	name = "iron lamp post"
-	icon = 'icons/obj/lamppost.dmi'
-	base_state = "lampbulb"
-	icon_state = "lampbulb"
-	overlayicon = 'icons/obj/lamppost_overlay.dmi'
-	brightness = 8
-	density = TRUE
-	idle_power_usage = 0.05 KILOWATT
-	active_power_usage = 0.50 KILOWATT
-	light_type = /obj/item/light/bulb
-	fitting = "lampbulb"
-
-/obj/machinery/light/lamppost/built
-	icon_state = "lampbulb-empty"
-	start_with_cell = FALSE
-
-/obj/machinery/light/lamppost/built/Initialize(mapload)
-	. = ..()
-	status = LIGHT_EMPTY
-	update(FALSE, TRUE)
-
 // -------- Directional presets
 // The directions are backwards on the lights we have now
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light, 0)
@@ -145,14 +121,3 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/broken, 0)
 
 // ---- Blacklight bulbs
 MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/small/blacklight, 0)
-
-// -------- lampbulb lights
-
-// ---- Lamp post bulbs
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/lamppost, 0)
-
-// ---- Lamp post construct
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/light/lamppost/built, 0)
-
-// ---- Lamp post frame
-MAPPING_DIRECTIONAL_HELPERS(/obj/structure/light_construct/lamppost, 0)

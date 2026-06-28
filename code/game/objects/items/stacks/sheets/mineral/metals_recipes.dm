@@ -73,7 +73,6 @@ GLOBAL_LIST_INIT(metal_recipes, list ( \
 	new/datum/stack_recipe("computer frame", /obj/structure/frame/computer, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, time = 2.5 SECONDS, category = CAT_EQUIPMENT), \
 	new/datum/stack_recipe("modular console", /obj/machinery/modular_computer/console/buildable/, 10, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, time = 2.5 SECONDS, category = CAT_EQUIPMENT), \
 	new/datum/stack_recipe("machine frame", /obj/structure/frame/machine, 5, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, time = 2.5 SECONDS, category = CAT_EQUIPMENT), \
-	new/datum/stack_recipe("lamp post frame", /obj/structure/light_construct/lamppost, 5, crafting_flags =  CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, time = 2.5 SECONDS, category = CAT_EQUIPMENT), \
 	null, \
 	new /datum/stack_recipe_list("airlock assemblies", list( \
 		new /datum/stack_recipe("standard airlock assembly", /obj/structure/door_assembly, 4, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, time = 5 SECONDS, category = CAT_DOORS), \
