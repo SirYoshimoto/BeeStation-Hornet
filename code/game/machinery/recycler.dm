@@ -30,6 +30,7 @@
 		/datum/material/gold,
 		/datum/material/diamond,
 		/datum/material/plastic,
+		/datum/material/conc_bag,
 		/datum/material/uranium,
 		/datum/material/bananium,
 		/datum/material/titanium,

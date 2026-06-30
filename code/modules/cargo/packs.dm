@@ -1657,6 +1657,15 @@
 	contains = list(/obj/item/stack/sheet/wood/fifty)
 	crate_name = "wood planks crate"
 
+/datum/supply_pack/material/concrete50
+	name = "50 Concrete bags"
+	desc = "A heavy crate containing 50 bags of specially made SPA-CRETE, enough to cast the entire crew in concrete!"
+	max_supply = 5
+	cost = 1000
+	contains = list(/obj/item/paper/guides/concrete_useage,
+					/obj/item/stack/sheet/conc_bag/fifty)
+	crate_name = "concrete bags crate"
+
 /datum/supply_pack/materials/bz
 	name = "BZ Canister Crate"
 	desc = "Contains a canister of BZ. Requires Atmospherics access to open."

@@ -83,6 +83,43 @@
 	May I always act so as to preserve the finest traditions of my calling and may I long experience the joy of healing those who seek my help.
 	</i>"}
 
+/obj/item/paper/guides/concrete_useage
+	default_raw_text = "The wonderful world of space-concrete:<br>\
+	<ul>\
+	<li>CAUTION: CONCRETE USE MAY CAUSE RESPIRATORY ISSUES, DO NOT BREATH IN OR EAT!</li>\
+	<li>This is a special brand of premixed concrete known to NT as 'SPA-CRETE'.</li>\
+	<li>Contains subsances known to, and outlawed, in the Republic of Space-Masonburg to cause mad architects syndrome.</li>\
+	<li></li>\
+	<li>HOW TO MAKE: CONCRETE WALLS:</li>\
+	<li>STEP 1; Make a girder.</li>\
+	<li>STEP 2; Take X bags and pour them carefully inside the girder. DO NOT BREATH IN THE DUST!</li>\
+	<li>STEP 3; The concrete should self-form itself around the girder and harden before your very eyes!</li>\
+	<li></li>\
+	<li>HOW TO MAKE: CONCRETE HALFWALLS:</li>\
+	<li>STEP 1; Construct and place a half-sized girder, ensure it is secure!</li>\
+	<li>STEP 2; Carefully pour in 5 bags of SPA-CRETE into the half-girder, once filled the mix will form around the girder and solidify!</li>\
+	<li></li>\
+	<li>HOW TO MAKE: POURED CONCRETE FLOORS:</li>\
+	<li>STEP 1; Set a catwalk framework in the desired location</li>\
+	<li>STEP 2; Pour X bags of SPACRETE into the framework, SPACRETE will self level and harden in mere moments, providing you with a solid floor of SPA-CRETE!</li>\
+	<li></li>\
+	<li>HOW TO MAKE: CONCRETE SLAB TILES</li>\
+	<li>STEP 1; Pour 5 bags of SPA-CRETE into a suitable brick mold, this will form XX sheets of SPA-CRETE Concrete slabs!</li>\
+	<li>STEP 2; Using 4 sheets, craft them into a square, the sheets will then form into a tile SPA-CRETE Concrete slabs ready for use as flooring!</li>\
+	<li></li>\
+	<li>HOW TO MAKE: CONCRETE SHEET SLABS</li>\
+	<li>STEP 1; Prepare a suitable brick mold for pouring into.</li>\
+	<li>STEP 2; Pour 5 bags of SPA-CRETE into a brick mold, and after a moment, they will harden and pop out of the mold ready for use! </li>\
+	<li></li>\
+	<li>HOW TO MAKE: CONCRETE CLOTHES:</li>\
+	<li>WARNING, ONCE FORMED AROUND A LIMB, SPA-CRETE CLOTHES DO NOT COME OFF!! PROCEED AT YOUR OWN RISK!!</li>\
+	<li>SPA-CRETE IS HIGHLY CORROSIVE TO THE SKIN AND SHRINKS WHEN CURING, LIMBS MAY BECOME UNUSABLE AFTER APPLIED!!<li>\
+	<li>STEP 1; Form a suitable Brick mold, either from wood or iron</li>\
+	<li>STEP 2; Buckle yourself, or someone else to the frame, make sure the limbs are settled in the molds. </li>\
+	<li>STEP 3; Decide which limb you want concreted first, then pour a single bag of concrete over that limb, making sure it is settled in the mold.</li>\
+	<li>STEP 4; Repeat to the other limbs as desired! Wear your new SPA-CRETE clothes proudly!</li>\
+	</ul>"
+
 /obj/item/paper/fluff/jobs/medical/blood_types
 	name = "blood type compatibility reference"
 	default_raw_text = {"<h2>Blood Type Compatibility</h2>

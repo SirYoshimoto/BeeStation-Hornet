@@ -5,6 +5,9 @@
  * Carpet floor
  * Fake pits
  * Fake space
+ * Concrete slabs
+ * Concrete tiles
+ * Cobblestone path
  */
 
 /turf/open/floor/bamboo
@@ -528,6 +531,19 @@
 
 /turf/open/floor/concrete/slab
 	icon_state = "conc_slab"
+	floor_tile = /obj/item/stack/tile/mineral/conc_slab_tile
 
 /turf/open/floor/concrete/tile
 	icon_state = "conc_tiles"
+//	floor_tile = /obj/item/stack/tile/mineral/conc_tile
+
+//turf/open/floor/cobblestone
+//	name = "cobblestone"
+//	icon_state = "cobble"
+//	desc = "Some rocks cobbled together to form a path of sorts."
+//	floor_tile = /obj/item/stack/tile/mineral/cobble
+//	barefootstep = FOOTSTEP_HARD_BAREFOOT
+//	clawfootstep = FOOTSTEP_HARD_CLAW
+//	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
+//	tiled_dirt = FALSE
+//	max_integrity = 120

@@ -247,6 +247,8 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 
 #define ispickedupmob(A) (istype(A, /obj/item/mob_holder)) // Checks if clothing item is actually a held mob
 
+#define is_concrete(O) (istype(O, /obj/item/stack/sheet/conc_bag))
+
 GLOBAL_LIST_INIT(pointed_types, typecacheof(list(
 	/obj/item/pen,
 	/obj/item/screwdriver,

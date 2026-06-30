@@ -92,6 +92,20 @@
 	max_integrity = 150
 	damage_deflection = 0
 
+/turf/closed/wall/mineral/concrete
+	name = "concrete wall"
+	desc = "A Reinforced concrete wall. Sturdy and durable, will probably outlive your bloodline."
+	icon = 'icons/turf/walls/concrete_wall.dmi'
+	icon_state = "concrete_wall-0"
+	base_icon_state = "concrete_wall"
+	sheet_type = /obj/item/stack/sheet/conc_bag
+	explosion_block = 0
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_CLOSED_TURFS, SMOOTH_GROUP_CONCRETE_WALLS)
+	canSmoothWith = list(SMOOTH_GROUP_CONCRETE_WALLS)
+	max_integrity = 150
+	damage_deflection = 0
+
 /turf/closed/wall/mineral/uranium
 	article = "a"
 	name = "uranium wall"

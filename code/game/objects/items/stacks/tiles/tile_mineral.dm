@@ -134,6 +134,8 @@
 		/obj/item/stack/tile/mineral/titanium/tiled/blue,
 		/obj/item/stack/tile/mineral/titanium/tiled/white,
 		/obj/item/stack/tile/mineral/titanium/tiled/purple,
+		/obj/item/stack/tile/mineral/titanium/tiled/green,
+		/obj/item/stack/tile/mineral/titanium/tiled/red,
 		)
 
 /obj/item/stack/tile/mineral/titanium/yellow
@@ -210,6 +212,22 @@
 	icon_state = "tile_titanium_tiled_purple"
 	merge_type = /obj/item/stack/tile/mineral/titanium/tiled/purple
 
+/obj/item/stack/tile/mineral/titanium/tiled/green
+	name = "green titanium tile"
+	singular_name = "green titanium floor tile"
+	desc = "Green titanium tiles, used for shuttles."
+	turf_type = /turf/open/floor/mineral/titanium/tiled/green
+	icon_state = "tile_titanium_tiled_green"
+	merge_type = /obj/item/stack/tile/mineral/titanium/tiled/green
+
+/obj/item/stack/tile/mineral/titanium/tiled/red
+	name = "red titanium tile"
+	singular_name = "red titanium floor tile"
+	desc = "Red titanium tiles, used for shuttles."
+	turf_type = /turf/open/floor/mineral/titanium/tiled/red
+	icon_state = "tile_titanium_tiled_red"
+	merge_type = /obj/item/stack/tile/mineral/titanium/tiled/red
+
 /obj/item/stack/tile/mineral/plastitanium
 	name = "plastitanium tile"
 	singular_name = "plastitanium floor tile"
@@ -252,6 +270,25 @@
 	turf_type = /turf/open/floor/wax
 	mineralType = "wax"
 	merge_type = /obj/item/stack/tile/mineral/wax
+
+/obj/item/stack/tile/mineral/brick
+	name = "brick tile"
+	singular_name = "brick tile"
+	desc = "Fired clay brick tiles"
+	icon_state = "tile-brick"
+	inhand_icon_state = "tile-brick"
+	turf_type = /turf/open/floor/brick
+	mats_per_unit = list(/datum/material/titanium=MINERAL_MATERIAL_AMOUNT*0.25)
+	merge_type = /obj/item/stack/tile/mineral/brick
+
+/obj/item/stack/tile/mineral/conc_slab_tile
+	name = "concrete slab tile"
+	singular_name = "concrete slab tile"
+	desc = "Heavy Concrete slab flooring, durable and strong."
+	icon_state = "conc_slab_tile"
+	inhand_icon_state = "tile-conc-slab"
+	turf_type = /turf/open/floor/concrete/slab
+	merge_type = /obj/item/stack/tile/mineral/conc_slab_tile
 
 /obj/item/stack/tile/mineral/brass
 	name = "brass tiles"

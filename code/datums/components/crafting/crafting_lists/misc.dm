@@ -130,6 +130,18 @@
 	tool_paths = list(/obj/item/hatchet)
 	category = CAT_MISC
 
+/datum/crafting_recipe/concrete
+	name = "Concrete bag"
+	result = /obj/item/stack/sheet/conc_bag
+	result_amount = 1
+	time = 1 SECONDS
+	reqs = list(
+		/obj/item/stack/ore/glass/basalt = 10,
+		/datum/reagent/lye = 5,
+		/obj/item/emptysandbag = 1
+	)
+	category = CAT_MISC
+
 /datum/crafting_recipe/brush
 	name = "Calligraphy Brush"
 	time = 30 SECONDS
