@@ -124,3 +124,75 @@
 
 /obj/machinery/power/floodlight/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0)
 	playsound(src, 'sound/effects/glasshit.ogg', 75, 1)
+
+// LAMP POSTS
+/obj/structure/floodlight_frame/lamppost_frame
+	name = "lamp post frame"
+	desc = "An old style hollow steel tube ready to be wrenched down and packed with wires."
+	max_integrity = 70
+	icon = 'icons/obj/lamppost.dmi'
+	icon_state = "lamppost_c1"
+	density = TRUE
+
+/obj/structure/floodlight_frame/lamppost_frame/attackby(obj/item/O, mob/user, params)
+	if(O.tool_behaviour == TOOL_WRENCH && (state == FLOODLIGHT_NEEDS_WRENCHING))
+		to_chat(user, span_notice("You secure [src]."))
+		anchored = TRUE
+		state = FLOODLIGHT_NEEDS_WIRES
+		desc = "A tall steel tube resembling a lamp post. Needs some wires."
+	else if(istype(O, /obj/item/stack/cable_coil) && (state == FLOODLIGHT_NEEDS_WIRES))
+		var/obj/item/stack/S = O
+		if(S.use(5))
+			to_chat(user, span_notice("You wire [src]."))
+			name = "wired [name]"
+			desc = "A tall steel tube resembling a lamp post. Needs securing with a screwdriver."
+			icon_state = "lamppost_c2"
+			state = FLOODLIGHT_NEEDS_SECURING
+	else if(istype(O, /obj/item/light/bulb) && (state == FLOODLIGHT_NEEDS_LIGHTS))
+		if(user.transferItemToLoc(O))
+			to_chat(user, span_notice("You put lights in [src]."))
+			new /obj/machinery/power/floodlight/lamppost(src.loc)
+			qdel(src)
+	else if(O.tool_behaviour == TOOL_SCREWDRIVER && (state == FLOODLIGHT_NEEDS_SECURING))
+		to_chat(user, span_notice("You fasten the wiring and electronics in [src]."))
+		name = "secured [name]"
+		desc = "A tall steel tube resembling a lamp post. Requires light tubes."
+		icon_state = "lamppost_c3"
+		state = FLOODLIGHT_NEEDS_LIGHTS
+	else
+		..()
+
+/obj/machinery/power/floodlight/lamppost
+	name = "steel lamp post"
+	desc = "An old fashioned lightbulb lamppost, requires direct wiring to a wire node to produce light."
+	icon = 'icons/obj/lamppost.dmi'
+	icon_state = "lamppost"
+	density = TRUE
+	layer = ABOVE_MOB_LAYER
+	max_integrity = 80
+	integrity_failure = 0.8
+	idle_power_usage = 80
+	active_power_usage = 700
+	light_power = 1.75
+	light_setting_list = list(0, 5)
+
+/obj/machinery/power/floodlight/lamppost/change_setting(val, mob/user)
+	if((val < 1) || (val > light_setting_list.len))
+		return
+	active_power_usage = light_setting_list[val]
+	if(!avail(active_power_usage))
+		return change_setting(val - 1)
+	setting = val
+	set_light(light_setting_list[val])
+	var/setting_text = ""
+	if(val > 1)
+		icon_state = "[initial(icon_state)]_on"
+	else
+		icon_state = initial(icon_state)
+	switch(val)
+		if(1)
+			setting_text = "OFF"
+		if(2)
+			setting_text = "ON"
+	if(user)
+		to_chat(user, "You set [src] to [setting_text].")
