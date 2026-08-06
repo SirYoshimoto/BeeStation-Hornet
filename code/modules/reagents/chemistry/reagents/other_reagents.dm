@@ -486,7 +486,7 @@
 				if ("albino")
 					human.skin_tone = "caucasian1"
 
-		if(MUTCOLORS in human.dna.species.species_traits) //take current alien color and darken it slightly
+		if(MUTANT_COLOR in human.dna.species.species_traits) //take current alien color and darken it slightly
 			var/list/existing_color = rgb2num(human.dna.features["mcolor"])
 			var/list/darkened_color = list()
 			// Reduces each part of the color by 16
@@ -510,11 +510,11 @@
 		affected_human.facial_hair_style = "Shaved"
 		affected_human.facial_hair_color = COLOR_BLACK
 		affected_human.hair_color = COLOR_BLACK
-		if(!(HAIR in affected_human.dna.species.species_traits)) //No hair? No problem!
-			affected_human.dna.species.species_traits += HAIR
+		if(!(HAIR_COLOR in affected_human.dna.species.species_traits)) //No hair? No problem!
+			affected_human.dna.species.species_traits += HAIR_COLOR
 		if(affected_human.dna.species.use_skintones)
 			affected_human.skin_tone = "orange"
-		else if(MUTCOLORS in affected_human.dna.species.species_traits) //Aliens with custom colors simply get turned orange
+		else if(MUTANT_COLOR in affected_human.dna.species.species_traits) //Aliens with custom colors simply get turned orange
 			affected_human.dna.features["mcolor"] = COLOR_ORANGE
 		affected_human.regenerate_icons()
 
@@ -838,12 +838,12 @@
 	. = ..()
 	if(!exposed_obj || !reac_volume)
 		return
-	exposed_obj.atmos_spawn_air("o2=[reac_volume / 2];TEMP=[holder ? holder.chem_temp : T20C]")
+	exposed_obj.atmos_spawn_air("[GAS_O2]=[reac_volume / 2];TEMP=[holder ? holder.chem_temp : T20C]")
 
 /datum/reagent/oxygen/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
 	if(istype(exposed_turf))
-		exposed_turf.atmos_spawn_air("o2=[reac_volume / 2];TEMP=[holder ? holder.chem_temp : T20C]")
+		exposed_turf.atmos_spawn_air("[GAS_O2]=[reac_volume / 2];TEMP=[holder ? holder.chem_temp : T20C]")
 
 /datum/reagent/copper
 	name = "Copper"
@@ -873,12 +873,12 @@
 	. = ..()
 	if(!exposed_obj || !reac_volume)
 		return
-	exposed_obj.atmos_spawn_air("n2=[reac_volume / 2];TEMP=[holder ? holder.chem_temp : T20C]")
+	exposed_obj.atmos_spawn_air("[GAS_N2]=[reac_volume / 2];TEMP=[holder ? holder.chem_temp : T20C]")
 
 /datum/reagent/nitrogen/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
 	if(istype(exposed_turf))
-		exposed_turf.atmos_spawn_air("n2=[reac_volume / 2];TEMP=[holder ? holder.chem_temp : T20C]")
+		exposed_turf.atmos_spawn_air("[GAS_N2]=[reac_volume / 2];TEMP=[holder ? holder.chem_temp : T20C]")
 
 /datum/reagent/hydrogen
 	name = "Hydrogen"
@@ -1368,12 +1368,12 @@
 	. = ..()
 	if(!exposed_obj || !reac_volume)
 		return
-	exposed_obj.atmos_spawn_air("co2=[reac_volume / 5];TEMP=[holder ? holder.chem_temp : T20C]")
+	exposed_obj.atmos_spawn_air("[GAS_CO2]=[reac_volume / 5];TEMP=[holder ? holder.chem_temp : T20C]")
 
 /datum/reagent/carbondioxide/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
 	if(istype(exposed_turf))
-		exposed_turf.atmos_spawn_air("co2=[reac_volume / 5];TEMP=[holder ? holder.chem_temp : T20C]")
+		exposed_turf.atmos_spawn_air("[GAS_CO2]=[reac_volume / 5];TEMP=[holder ? holder.chem_temp : T20C]")
 
 /datum/reagent/nitrous_oxide
 	name = "Nitrous Oxide"
@@ -1387,12 +1387,12 @@
 /datum/reagent/nitrous_oxide/expose_obj(obj/exposed_obj, reac_volume)
 	. = ..()
 	if(exposed_obj && reac_volume)
-		exposed_obj.atmos_spawn_air("n2o=[reac_volume / 5];TEMP=[holder ? holder.chem_temp : T20C]")
+		exposed_obj.atmos_spawn_air("[GAS_N2O]=[reac_volume / 5];TEMP=[holder ? holder.chem_temp : T20C]")
 
 /datum/reagent/nitrous_oxide/expose_turf(turf/exposed_turf, reac_volume)
 	. = ..()
 	if(istype(exposed_turf))
-		exposed_turf.atmos_spawn_air("n2o=[reac_volume / 5];TEMP=[holder ? holder.chem_temp : T20C]")
+		exposed_turf.atmos_spawn_air("[GAS_N2O]=[reac_volume / 5];TEMP=[holder ? holder.chem_temp : T20C]")
 
 /datum/reagent/nitrous_oxide/expose_mob(mob/living/exposed_mob, method = TOUCH, reac_volume)
 	if(method == VAPOR)

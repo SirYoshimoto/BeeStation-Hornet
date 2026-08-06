@@ -66,7 +66,7 @@
 	QDEL_NULL(radio)
 	QDEL_NULL(countdown)
 	if(connected)
-		connected.DetachCloner(src)
+		connected.detach_clonepod(src)
 	QDEL_LIST(unattached_flesh)
 	. = ..()
 
@@ -171,13 +171,10 @@ SCREENTIP_ATTACK_HAND(/obj/machinery/clonepod, "Examine")
 			. += "Current clone cycle is [round(get_completion())]% complete."
 
 /obj/machinery/clonepod/return_air()
-	// We want to simulate the clone not being in contact with
-	// the atmosphere, so we'll put them in a constant pressure
-	// nitrogen. They don't need to breathe while cloning anyway.
-	var/static/datum/gas_mixture/immutable/planetary/cloner/GM //global so that there's only one instance made for all cloning pods
-	if(!GM)
-		GM = new
-	return GM
+	var/datum/gas_mixture/nitrogen_atmosphere = new
+	nitrogen_atmosphere.set_gas(/datum/gas/nitrogen, 104)
+	nitrogen_atmosphere.temperature = T20C
+	return nitrogen_atmosphere
 
 /obj/machinery/clonepod/proc/get_completion()
 	. = FALSE
@@ -416,8 +413,8 @@ DEFINE_BUFFER_HANDLER(/obj/machinery/clonepod)
 		to_chat(user, "<font color = #666633>-% Successfully linked [buffer] with [src] %-</font color>")
 		var/obj/machinery/computer/cloning/comp = buffer
 		if(connected)
-			connected.DetachCloner(src)
-		comp.AttachCloner(src)
+			connected.detach_clonepod(src)
+		comp.attach_clonepod(src)
 	else if (TRY_STORE_IN_BUFFER(buffer_parent, src))
 		to_chat(user, "<font color = #666633>-% Successfully stored [REF(src)] [name] in buffer %-</font color>")
 	else
