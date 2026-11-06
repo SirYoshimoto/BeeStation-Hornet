@@ -2,7 +2,7 @@
 /datum/antagonist/heretic_monster
 	name = "\improper Eldritch Horror"
 	roundend_category = "Heretics"
-	antagpanel_category = "Heretic Beast"
+	antagpanel_category = ANTAG_GROUP_HORRORS
 	antag_moodlet = /datum/mood_event/heretics
 	banning_key = ROLE_HERETIC
 	show_in_antagpanel = FALSE
@@ -13,7 +13,7 @@
 
 /datum/antagonist/heretic_monster/on_gain()
 	. = ..()
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/heretic/heretic_gain.ogg', vol = 100, vary = FALSE, channel = CHANNEL_ANTAG_GREETING, pressure_affected = FALSE, use_reverb = FALSE)//subject to change
+	owner.current.playsound_local(get_turf(owner.current), 'sound/effects/antag/heretic/heretic_gain.ogg', vol = 100, vary = FALSE, channel = CHANNEL_ANTAG_GREETING, pressure_affected = FALSE, use_reverb = FALSE)//subject to change
 
 /datum/antagonist/heretic_monster/on_removal()
 	if(!silent)

@@ -377,11 +377,11 @@
 	return is_refillable() && is_drainable()
 
 /// Is this atom injectable into other atoms
-/atom/proc/is_injectable(mob/user, allowmobs = TRUE)
+/atom/proc/is_injectable()
 	return reagents && (reagents.flags & (INJECTABLE | REFILLABLE))
 
 /// Can we draw from this atom with an injectable atom
-/atom/proc/is_drawable(mob/user, allowmobs = TRUE)
+/atom/proc/is_drawable()
 	return reagents && (reagents.flags & (DRAWABLE | DRAINABLE))
 
 /// Can this atoms reagents be refilled
@@ -391,6 +391,10 @@
 /// Is this atom drainable of reagents
 /atom/proc/is_drainable()
 	return reagents && (reagents.flags & DRAINABLE)
+
+/// Can we dunk stuff into this container?
+/atom/proc/is_dunkable()
+	return reagents && (reagents.flags & DUNKABLE)
 
 /** Handles exposing this atom to a list of reagents.
   *
@@ -676,7 +680,10 @@
 	qdel(src)
 	return
 
-/atom/proc/OnCreatedFromProcessing(mob/living/user, obj/item/I, list/chosen_option, atom/original_atom)
+/atom/proc/OnCreatedFromProcessing(mob/living/user, obj/item/work_tool, list/chosen_option, atom/original_atom)
+	SHOULD_CALL_PARENT(TRUE)
+
+	SEND_SIGNAL(src, COMSIG_ATOM_CREATEDBY_PROCESSING, original_atom, chosen_option)
 	if(user.mind)
 		ADD_TRAIT(src, TRAIT_FOOD_CHEF_MADE, REF(user.mind))
 	return

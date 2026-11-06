@@ -28,6 +28,7 @@
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/weapons/bite.ogg'
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	speak_emote = list("chitters", "squeeks", "clicks")
 
 	//Space dolphins aren't affected by cold.
@@ -38,9 +39,6 @@
 /mob/living/simple_animal/hostile/retaliate/dolphin/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SPACEWALK, INNATE_TRAIT)
-
-/mob/living/simple_animal/hostile/retaliate/dolphin/Process_Spacemove(movement_dir = 0)
-	return TRUE
 
 /mob/living/simple_animal/hostile/retaliate/dolphin/AttackingTarget()
 	..()

@@ -72,7 +72,10 @@
 		var/mob/new_character = generate_ruleset_body(chosen_candidate)
 		finish_setup(new_character)
 
-		notify_ghosts("[chosen_candidate] has been picked for the [src] ruleset!", source = new_character, action = NOTIFY_ORBIT, header = "Something Interesting!")
+		notify_ghosts(
+			"[chosen_candidate] has been picked for the [src] ruleset!",
+			source = new_character,
+		)
 
 	return DYNAMIC_EXECUTE_SUCCESS
 
@@ -128,7 +131,10 @@
 		var/mob/new_character = generate_ruleset_body(chosen_candidate)
 		finish_setup(new_character)
 
-		notify_ghosts("[chosen_candidate] has been picked for the [src] ruleset!", source = new_character, action = NOTIFY_ORBIT, header = "Something Interesting!")
+		notify_ghosts(
+			"[chosen_candidate] has been picked for the [src] ruleset!",
+			source = new_character,
+		)
 
 
 /**
@@ -188,6 +194,7 @@
 	antag_datum = /datum/antagonist/wizard
 	points_cost = 50
 	weight = 4
+	minimum_players_required = 20
 
 /datum/dynamic_ruleset/midround/ghost/wizard/get_poll_icon()
 	return /obj/item/clothing/head/wizard
@@ -248,7 +255,7 @@
 	severity = DYNAMIC_MIDROUND_HEAVY
 	antag_datum = /datum/antagonist/blob
 	points_cost = 50
-	minimum_players_required = 13
+	minimum_players_required = 20
 	weight = 4
 	use_spawn_locations = FALSE
 
@@ -288,9 +295,6 @@
 
 /datum/dynamic_ruleset/midround/ghost/xenomorph_infestation/get_spawn_locations()
 	for(var/obj/machinery/atmospherics/components/unary/vent_pump/vent as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/atmospherics/components/unary/vent_pump))
-		if(QDELETED(vent))
-			continue
-
 		if(is_station_level(vent.loc.z) && !vent.welded)
 			var/datum/pipenet/vent_parent = vent.parents[1]
 
@@ -315,7 +319,7 @@
 	antag_datum = /datum/antagonist/space_dragon
 	points_cost = 40
 	weight = 4
-	minimum_players_required = 10
+	minimum_players_required = 20
 
 /datum/dynamic_ruleset/midround/ghost/space_dragon/get_poll_icon()
 	return /mob/living/simple_animal/hostile/space_dragon
@@ -493,6 +497,7 @@
 	drafted_players_amount = 2
 	points_cost = 40
 	weight = 4
+	minimum_players_required = 10
 
 	var/datum/team/spiders/team
 
@@ -521,9 +526,6 @@
 
 /datum/dynamic_ruleset/midround/ghost/spiders/get_spawn_locations()
 	for(var/obj/machinery/atmospherics/components/unary/vent_pump/vent as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/atmospherics/components/unary/vent_pump))
-		if(QDELETED(vent))
-			continue
-
 		if(is_station_level(vent.loc.z) && !vent.welded)
 			var/datum/pipenet/vent_parent = vent.parents[1]
 

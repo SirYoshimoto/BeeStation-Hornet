@@ -140,9 +140,6 @@ CREATION_TEST_IGNORE_SUBTYPES(/mob/living/carbon/monkey)
 	internal = null
 	return
 
-/mob/living/carbon/monkey/reagent_check(datum/reagent/R) //can metabolize all reagents
-	return FALSE
-
 /mob/living/carbon/monkey/canBeHandcuffed()
 	if(num_hands < 2)
 		return FALSE
@@ -249,7 +246,6 @@ CREATION_TEST_IGNORE_SUBTYPES(/mob/living/carbon/monkey)
 /datum/species/teratoma
 	name = "Teratoma"
 	id = "teratoma"
-	species_traits = list(HAIR_COLOR, FACIAL_HAIR_COLOR, LIPS)
 	inherent_traits = list(
 		TRAIT_NOHUNGER,
 		TRAIT_RADIMMUNE,
@@ -258,7 +254,6 @@ CREATION_TEST_IGNORE_SUBTYPES(/mob/living/carbon/monkey)
 		TRAIT_NO_DNA_COPY,
 		TRAIT_NOT_TRANSMORPHIC,
 	) //Made of mutated cells
-	use_skintones = FALSE
 	skinned_type = /obj/item/stack/sheet/animalhide/monkey
 	changesource_flags = MIRROR_BADMIN
 	mutantbrain = /obj/item/organ/brain/tumor
@@ -276,7 +271,7 @@ CREATION_TEST_IGNORE_SUBTYPES(/mob/living/carbon/monkey)
 /obj/item/organ/brain/tumor
 	name = "teratoma brain"
 
-/obj/item/organ/brain/tumor/Remove(mob/living/carbon/C, special, no_id_transfer, pref_load = FALSE)
+/obj/item/organ/brain/tumor/Remove(mob/living/carbon/C, special, no_id_transfer)
 	. = ..()
 	//Removing it deletes it
 	if(!QDELETED(src))
@@ -288,7 +283,7 @@ CREATION_TEST_IGNORE_SUBTYPES(/mob/living/carbon/monkey)
 /mob/living/carbon/monkey/tumor/create_dna()
 	dna = new /datum/dna/tumor(src)
 	//Give us the juicy mutant organs
-	dna.species.on_species_gain(src, null, FALSE)
+	dna.species.on_species_gain(src, null)
 	dna.species.regenerate_organs(src, replace_current = TRUE)
 
 /mob/living/carbon/monkey/get_fire_overlay(stacks, on_fire)

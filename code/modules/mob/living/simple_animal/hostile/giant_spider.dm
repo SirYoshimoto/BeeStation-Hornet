@@ -50,6 +50,7 @@
 	attack_verb_continuous = "bites"
 	attack_verb_simple = "bite"
 	attack_sound = 'sound/weapons/bite.ogg'
+	attack_vis_effect = ATTACK_EFFECT_BITE
 	unique_name = 1
 	gold_core_spawnable = HOSTILE_SPAWN
 	lighting_alpha = LIGHTING_PLANE_ALPHA_MOSTLY_VISIBLE
@@ -115,7 +116,7 @@
 /mob/living/simple_animal/hostile/poison/giant_spider/give_mind(mob/user)
 	..()
 	var/datum/antagonist/spider/spider_antag = mind?.has_antag_datum(/datum/antagonist/spider)
-	if(spider_antag.spider_team.directive)
+	if(spider_antag?.spider_team.directive)
 		log_game("[key_name(src)] took control of [name] with the objective: '[spider_antag.spider_team.directive]'.")
 	return TRUE
 

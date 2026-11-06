@@ -25,6 +25,20 @@
 		else
 			return COLOR_BLACK
 
+/proc/random_hair_color()
+	var/static/list/natural_hair_colors = list(
+		"#111111", "#362925", "#3B3831", "#41250C", "#412922",
+		"#544C49", "#583322", "#593029", "#703b30", "#714721",
+		"#744729", "#74482a", "#7b746e", "#855832", "#863019",
+		"#8c4734", "#9F550E", "#A29A96", "#A4381C", "#B17B41",
+		"#C0BAB7", "#EFE5E4", "#F7F3F1", "#FFF2D6", "#a15537",
+		"#a17e61", "#b38b67", "#ba673c", "#c89f73", "#d9b380",
+		"#dbc9b8", "#e1621d", "#e17d17", "#e1af93", "#f1cc8f",
+		"#fbe7a1",
+	)
+
+	return pick(natural_hair_colors)
+
 /proc/random_underwear(gender)
 	if(!GLOB.underwear_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/underwear, GLOB.underwear_list, GLOB.underwear_m, GLOB.underwear_f)
@@ -60,8 +74,6 @@
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/frills, GLOB.frills_list)
 	if(!GLOB.spines_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/spines, GLOB.spines_list)
-	if(!GLOB.legs_list.len)
-		init_sprite_accessory_subtypes(/datum/sprite_accessory/legs, GLOB.legs_list)
 	if(!GLOB.body_markings_list.len)
 		init_sprite_accessory_subtypes(/datum/sprite_accessory/body_markings, GLOB.body_markings_list)
 	if(!GLOB.wings_list.len)
@@ -121,7 +133,6 @@
 		"frills" = pick(GLOB.frills_list),
 		"spines" = pick(GLOB.spines_list),
 		"body_markings" = pick(GLOB.body_markings_list),
-		"legs" = "Normal Legs",
 		"moth_wings" = pick(GLOB.moth_wings_list),
 		"moth_antennae" = pick(GLOB.moth_antennae_list),
 		"moth_markings" = pick(GLOB.moth_markings_list),
@@ -146,11 +157,11 @@
 	)
 
 /proc/random_hair_style(gender)
-	var/datum/sprite_accessory/picked = pick_default_accessory(GLOB.hair_styles_list, required_gender = gender)
+	var/datum/sprite_accessory/picked = pick_default_accessory(GLOB.hairstyles_list, required_gender = gender)
 	return picked.name
 
-/proc/random_facial_hair_style(gender)
-	var/datum/sprite_accessory/picked = pick_default_accessory(GLOB.facial_hair_styles_list, required_gender = gender)
+/proc/random_facial_hairstyle(gender)
+	var/datum/sprite_accessory/picked = pick_default_accessory(GLOB.facial_hairstyles_list, required_gender = gender)
 	return picked.name
 
 GLOBAL_LIST_INIT(skin_tones, sort_list(list(
@@ -559,6 +570,8 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 			return "left foot"
 		if(BODY_ZONE_PRECISE_R_FOOT)
 			return "right foot"
+		if(BODY_ZONE_PRECISE_GROIN)
+			return "groin"
 		else
 			return zone
 
@@ -643,7 +656,8 @@ GLOBAL_LIST_INIT(skin_tone_names, list(
 /proc/get_brainmob(obj/target_item, finds_mmi = FALSE)
 	if(istype(target_item, /obj/item/bodypart/head))
 		var/obj/item/bodypart/head/head = target_item
-		return head.brainmob
+		var/obj/item/organ/brain/head_brain = locate(/obj/item/organ/brain) in head
+		return head_brain?.brainmob
 
 	else if(istype(target_item, /obj/item/organ/brain))
 		var/obj/item/organ/brain/brain = target_item

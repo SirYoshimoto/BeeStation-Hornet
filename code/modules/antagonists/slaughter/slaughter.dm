@@ -21,6 +21,7 @@
 	stop_automated_movement = 1
 	status_flags = CANPUSH
 	attack_sound = 'sound/magic/demon_attack1.ogg'
+	attack_vis_effect = ATTACK_EFFECT_CLAW
 	var/feast_sound = 'sound/magic/demon_consume.ogg'
 	death_sound = 'sound/magic/demon_dies.ogg'
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_plas" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
@@ -128,13 +129,13 @@
 	user.temporarilyRemoveItemFromInventory(src, TRUE)
 	src.Insert(user) //Consuming the heart literally replaces your heart with a demon heart. H A R D C O R E
 
-/obj/item/organ/heart/demon/on_insert(mob/living/carbon/heart_owner)
+/obj/item/organ/heart/demon/on_mob_insert(mob/living/carbon/heart_owner)
 	..()
 	// Gives a non-eat-people crawl to the new owner
 	var/datum/action/spell/jaunt/bloodcrawl/crawl = new(heart_owner)
 	crawl.Grant(heart_owner)
 
-/obj/item/organ/heart/demon/on_remove(mob/living/carbon/heart_owner, special = FALSE)
+/obj/item/organ/heart/demon/on_mob_remove(mob/living/carbon/heart_owner, special = FALSE, movement_flags)
 	..()
 	var/datum/action/spell/jaunt/bloodcrawl/crawl = locate() in heart_owner.actions
 	qdel(crawl)
@@ -155,6 +156,7 @@
 	attack_verb_simple = "wildly tickle"
 
 	attack_sound = 'sound/items/bikehorn.ogg'
+	attack_vis_effect = null
 	feast_sound = 'sound/spookoween/scary_horn2.ogg'
 	death_sound = 'sound/misc/sadtrombone.ogg'
 

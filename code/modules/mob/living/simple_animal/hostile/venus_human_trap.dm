@@ -147,6 +147,7 @@
 /mob/living/simple_animal/hostile/venus_human_trap/Initialize(mapload)
 	remove_verb(/mob/living/verb/pulled) //No pulling people into the vines
 	. = ..()
+	mind.add_antag_datum(/datum/antagonist/venus_human_trap)
 
 /mob/living/simple_animal/hostile/venus_human_trap/Life(delta_time = SSMOBS_DT, times_fired)
 	. = ..()
@@ -297,28 +298,34 @@
  */
 
 /mob/living/simple_animal/hostile/venus_human_trap/proc/pull_vines()
-	for(var/datum/beam/B in vines)
-		if(istype(B.target, /atom/movable))
-			var/atom/movable/AM = B.target
-			if(AM.pulledby) //If someone is pulling the victim that a vine has hit, release them.
-				qdel(B)
+	for(var/datum/beam/vine_beam in vines)
+		if(istype(vine_beam.target, /atom/movable))
+			var/atom/movable/vine_target = vine_beam.target
+			if(vine_target.pulledby) //If someone is pulling the victim that a vine has hit, release them.
+				qdel(vine_beam)
 				return //This vine no longer exists abort
-			if(!AM.anchored)
-				step(AM, get_dir(AM,src))
 
-		if(iscyborg(B.target)) // Check if the target is a cyborg and is dead, then qdel the vine, otherwise they'll be forever pulled if nothing breaks the vine
-			var/mob/living/silicon/robot/R = B.target
-			if(R.stat == DEAD)
-				qdel(B)
+			if(!clear_line_of_sight(src, vine_target))
+				qdel(vine_beam)
+				continue // wall now blocks the vine, release it instead of dragging through
+
+			if(!vine_target.anchored)
+				step(vine_target, get_dir(vine_target, src))
+
+		if(iscyborg(vine_beam.target)) // Check if the target is a cyborg and is dead, then qdel the vine, otherwise they'll be forever pulled if nothing breaks the vine
+			var/mob/living/silicon/robot/vine_robot_target = vine_beam.target
+			if(vine_robot_target.stat == DEAD)
+				qdel(vine_beam)
 				continue // Move to the next vine since this one is deleted
 
-		if(iscarbon(B.target)) // If they dont get away quickly, make them take constant stamina damage
-			var/mob/living/L = B.target
-			L.apply_damage(10, STAMINA, BODY_ZONE_CHEST)
-			L.Knockdown(3 SECONDS)
+		if(iscarbon(vine_beam.target)) // If they dont get away quickly, make them take constant stamina damage
+			var/mob/living/vine_carbon_target = vine_beam.target
+			vine_carbon_target.apply_damage(10, STAMINA, BODY_ZONE_CHEST)
+			if(!vine_carbon_target.IsKnockdown() || vine_carbon_target.AmountKnockdown() < 1 SECONDS)
+				vine_carbon_target.Knockdown(3 SECONDS)
 
-		if(get_dist(src, B.target) == 0)
-			qdel(B)
+		if(get_dist(src, vine_beam.target) == 0)
+			qdel(vine_beam)
 
 /**
  * Removes a vine from the list.

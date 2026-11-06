@@ -76,28 +76,11 @@
 	var/heat_level_3_damage = HEAT_GAS_DAMAGE_LEVEL_3
 	var/heat_damage_type = BURN
 
-	var/list/thrown_alerts
-
 	var/crit_stabilizing_reagent = /datum/reagent/medicine/epinephrine
 
 /obj/item/organ/lungs/New()
 	. = ..()
 	populate_gas_info()
-
-/obj/item/organ/lungs/Insert(mob/living/carbon/M, special, drop_if_replaced, pref_load)
-	// This may look weird, but uh, organ code is weird, so we FIRST check to see if this organ is going into a NEW person.
-	// If it is going into a new person, ..() will ensure that organ is Remove()d first, and we won't run into any issues with duplicate signals.
-	var/new_owner = QDELETED(owner) || owner != M
-	. = ..()
-	if(!.)
-		return .
-	if(new_owner)
-		RegisterSignal(M, SIGNAL_ADDTRAIT(TRAIT_NOBREATH), PROC_REF(on_nobreath))
-
-/obj/item/organ/lungs/Remove(mob/living/carbon/M, special, pref_load)
-	. = ..()
-	UnregisterSignal(M, SIGNAL_ADDTRAIT(TRAIT_NOBREATH))
-	LAZYNULL(thrown_alerts)
 
 /obj/item/organ/lungs/proc/populate_gas_info()
 	gas_min[breathing_class] = safe_breath_min
@@ -108,34 +91,12 @@
 		damage_type = safe_damage_type
 	)
 
-/obj/item/organ/lungs/proc/on_nobreath(mob/living/carbon/source)
-	SIGNAL_HANDLER
-	var/static/list/breath_moodlets = list("chemical_euphoria", "suffocation") // Moodlets directly caused by breathing
-	if(!istype(source))
-		return
-	source.failed_last_breath = FALSE
-	for(var/alert_category in thrown_alerts)
-		source.clear_alert(alert_category)
-	LAZYNULL(thrown_alerts)
-	for(var/moodlet in breath_moodlets)
-		SEND_SIGNAL(source, COMSIG_CLEAR_MOOD_EVENT, moodlet)
-
-/obj/item/organ/lungs/proc/throw_alert_for(mob/living/carbon/target, alert_category, alert_type)
-	if(!istype(target) || !alert_category || !alert_type)
-		return
-	target.throw_alert(alert_category, alert_type)
-	LAZYOR(thrown_alerts, alert_category)
-
-/obj/item/organ/lungs/proc/clear_alert_for(mob/living/carbon/target, alert_category)
-	if(!istype(target) || !alert_category)
-		return
-	target.clear_alert(alert_category)
-	LAZYREMOVE(thrown_alerts, alert_category)
-
 /obj/item/organ/lungs/proc/check_breath(datum/gas_mixture/breath, mob/living/carbon/human/H)
 	//TODO: add lung damage = less oxygen gains
 	var/breathModifier = (5-(5*(damage/maxHealth)/2)) //range 2.5 - 5
 	if(HAS_TRAIT(H, TRAIT_GODMODE))
+		H.failed_last_breath = FALSE //clear oxy issues
+		H.clear_alert(ALERT_NOT_ENOUGH_OXYGEN)
 		return
 	if(HAS_TRAIT(H, TRAIT_NOBREATH))
 		return
@@ -155,7 +116,8 @@
 			var/datum/breathing_class/class = GLOB.breathing_class_info[breathing_class]
 			alert_category = class.low_alert_category
 			alert_type = class.low_alert_datum
-		throw_alert_for(H, alert_category, alert_type)
+		if(alert_category)
+			H.throw_alert(alert_category, alert_type)
 		return FALSE
 
 	#define PP_MOLES(X) ((X / total_moles) * pressure)
@@ -203,12 +165,14 @@
 				multiplier /= required_moles
 			for(var/adjustment in mole_adjustments)
 				mole_adjustments[adjustment] *= multiplier
-			throw_alert_for(H, alert_category, alert_type)
+			if(alert_category)
+				H.throw_alert(alert_category, alert_type)
 		else
 			H.failed_last_breath = FALSE
 			if(H.health >= H.crit_threshold)
 				H.adjustOxyLoss(-breathModifier)
-			clear_alert_for(H, alert_category)
+			if(alert_category)
+				H.clear_alert(alert_category)
 	for(var/entry in gas_max)
 		var/found_pp = 0
 		var/datum/breathing_class/breathing_class = breathing_classes[entry]
@@ -228,9 +192,11 @@
 			var/list/damage_info = (entry in gas_damage) ? gas_damage[entry] : gas_damage["default"]
 			var/dam = found_pp / gas_max[entry] * 10
 			H.apply_damage(clamp(dam, damage_info["min"], damage_info["max"]), damage_info["damage_type"], spread_damage = TRUE)
-			throw_alert_for(H, alert_category, alert_type)
+			if(alert_category)
+				H.throw_alert(alert_category, alert_type)
 		else
-			clear_alert_for(H, alert_category)
+			if(alert_category)
+				H.clear_alert(alert_category)
 
 	for(var/gas_type, gas_amount in mole_adjustments)
 		cached_moles[gas_type] += gas_amount
@@ -239,19 +205,18 @@
 	if(breath)	// If there's some other shit in the air lets deal with it here.
 
 	// N2O
-
 		var/SA_pp = PP(breath, /datum/gas/nitrous_oxide)
 		if(SA_pp > SA_para_min) // Enough to make us stunned for a bit
-			H.Unconscious(60) // 60 gives them one second to wake up and run away a bit!
-			if(SA_pp > SA_sleep_min) // Enough to make us sleep as well
-				H.Sleeping(max(H.AmountSleeping() + 40, 200))
-		else if(SA_pp > 0.01)	// There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
+			if(!HAS_TRAIT(H, TRAIT_SLEEPIMMUNE))
+				H.Unconscious(6 SECONDS) // 60 gives them one second to wake up and run away a bit!
+				if(SA_pp > SA_sleep_min) // Enough to make us sleep as well
+					H.Sleeping(max(H.AmountSleeping() + 40, 200))
+		else if(SA_pp > 0.01) // There is sleeping gas in their lungs, but only a little, so give them a bit of a warning
 			if(prob(20))
 				H.emote(pick("giggle", "laugh"))
 				SEND_SIGNAL(owner, COMSIG_ADD_MOOD_EVENT, "chemical_euphoria", /datum/mood_event/chemical_euphoria)
 		else
 			SEND_SIGNAL(owner, COMSIG_CLEAR_MOOD_EVENT, "chemical_euphoria")
-
 	// BZ
 
 		var/bz_pp = PP(breath, /datum/gas/bz)
@@ -347,6 +312,21 @@
 /obj/item/organ/lungs/get_availability(datum/species/owner_species, mob/living/owner_mob)
 	return owner_species.mutantlungs
 
+/obj/item/organ/lungs/feel_for_damage(self_aware)
+	if(organ_flags & ORGAN_FAILING)
+		if(self_aware)
+			return span_boldwarning("Your lungs hurt madly[HAS_TRAIT(owner, TRAIT_NOBREATH) ? "" : ", and you can't breathe"]!")
+		return span_boldwarning("It hurts madly[HAS_TRAIT(owner, TRAIT_NOBREATH) ? "" : ", and you can't breathe"]!")
+	if(damage < low_threshold)
+		return ""
+	if(damage < high_threshold)
+		if(self_aware)
+			return span_warning("Your lungs feel tight[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", and breathing is harder"].")
+		return span_warning("It feels tight[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", and breathing is harder"].")
+	if(self_aware)
+		return span_boldwarning("Your lungs feel extremely tight[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", and every breath is a struggle"].")
+	return span_boldwarning("It feels extremely tight[HAS_TRAIT(owner, TRAIT_NOBREATH) ?  "" : ", and every breath is a struggle"].")
+
 #define SMOKER_ORGAN_HEALTH (STANDARD_ORGAN_THRESHOLD * 0.75)
 #define SMOKER_LUNG_HEALING (STANDARD_ORGAN_HEALING * 0.75)
 
@@ -354,6 +334,7 @@
 	name = "plasma filter"
 	desc = "A spongy rib-shaped mass for filtering plasma from the air."
 	icon_state = "lungs-plasma"
+	organ_traits = list(TRAIT_NOHUNGER) // A fresh breakfast of plasma is a great start to any morning.
 
 	breathing_class = BREATH_PLASMA
 
@@ -390,13 +371,7 @@
 	safe_breath_min = 13
 	safe_breath_max = 100
 
-/obj/item/organ/lungs/cybernetic/emp_act(severity)
-	. = ..()
-	if(. & EMP_PROTECT_SELF)
-		return
-	if(prob(30/severity))
-		owner.losebreath += 10
-
+	var/emp_vulnerability = 60
 
 /obj/item/organ/lungs/cybernetic/upgraded
 	name = "upgraded cybernetic lungs"
@@ -413,6 +388,18 @@
 	cold_level_1_threshold = 200
 	cold_level_2_threshold = 140
 	cold_level_3_threshold = 100
+
+	emp_vulnerability = 40
+
+/obj/item/organ/lungs/cybernetic/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	if(!COOLDOWN_FINISHED(src, emp_cooldown)) //To fight against two emp guns
+		owner.losebreath += 10
+		COOLDOWN_START(src, emp_cooldown, 20 SECONDS)
+	if(prob(emp_vulnerability/severity))
+		organ_flags |= ORGAN_EMP
 
 /obj/item/organ/lungs/apid
 	name = "apid lungs"

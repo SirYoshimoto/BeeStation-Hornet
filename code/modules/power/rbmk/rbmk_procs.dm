@@ -1,6 +1,6 @@
 //This section contain all procs that helps building, destroy and control the RBMK
 
-/obj/machinery/atmospherics/components/unary/rbmk/core/attackby(obj/item/attacked_item, mob/user, params)
+/obj/machinery/atmospherics/components/unary/rbmk/core/attackby(obj/item/attacked_item, mob/user, list/modifiers)
 	if(istype(attacked_item, /obj/item/fuel_rod))
 		if(power >= SAFE_POWER_LEVEL)
 			to_chat(user, span_notice("You cannot insert fuel into [src] when it has been raised above [SAFE_POWER_LEVEL]% power."))
@@ -526,7 +526,7 @@ Arguments:
 	var/obj/effect/nuclear_sludge_spawner/nuclear_sludge_spawner = new /obj/effect/nuclear_sludge_spawner(get_turf(src))
 	nuclear_sludge_spawner.range = 4 + min(25,floor(4 * max(1,(temperature-RBMK_TEMPERATURE_CRITICAL)/RBMK_TEMPERATURE_CRITICAL))) // scales by an extra 4 tile radius per 100% over maximum
 	nuclear_sludge_spawner.fire()
-	Destroy()
+	qdel(src)
 
 /obj/machinery/atmospherics/components/unary/rbmk/core/proc/blowout()
 	explosion(get_turf(src), GLOB.MAX_EX_DEVESTATION_RANGE, GLOB.MAX_EX_HEAVY_RANGE, GLOB.MAX_EX_LIGHT_RANGE, GLOB.MAX_EX_FLASH_RANGE)

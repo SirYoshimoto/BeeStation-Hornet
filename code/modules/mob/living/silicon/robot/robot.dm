@@ -116,8 +116,6 @@
 		if(mmi.brainmob)
 			if(mmi.brainmob.stat == DEAD)
 				mmi.brainmob.set_stat(CONSCIOUS)
-				mmi.brainmob.remove_from_dead_mob_list()
-				mmi.brainmob.add_to_alive_mob_list()
 			mind.transfer_to(mmi.brainmob)
 			mmi.update_icon()
 		else
@@ -292,7 +290,7 @@
 		return
 	togglelock(user)
 
-/mob/living/silicon/robot/attackby(obj/item/attacking_item, mob/living/user, params)
+/mob/living/silicon/robot/attackby(obj/item/attacking_item, mob/living/user, list/modifiers)
 	if (user.combat_mode)
 		return ..()
 
@@ -374,7 +372,7 @@
 		if(shell)
 			to_chat(user, "You cannot seem to open the radio compartment.")	//Prevent AI radio key theft
 		else if(radio)
-			radio.attackby(attacking_item,user)//Push it to the radio to let it handle everything
+			radio.screwdriver_act(user, attacking_item) // Push it to the radio to let it handle everything
 		else
 			to_chat(user, span_warning("Unable to locate a radio!"))
 		update_icons()
@@ -763,8 +761,6 @@
 	if (cell) //Sanity check.
 		cell.forceMove(T)
 		cell = null
-	// Call destroy() before deleting to ensure that the borg's brain stays connected
-	Destroy()
 	qdel(src)
 
 /mob/living/silicon/robot/proc/notify_ai(notifytype, oldname, newname)

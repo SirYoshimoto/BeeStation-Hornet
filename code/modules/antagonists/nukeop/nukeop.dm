@@ -1,7 +1,7 @@
 /datum/antagonist/nukeop
-	name = "Nuclear Operative"
+	name = ROLE_NUCLEAR_OPERATIVE
 	roundend_category = "syndicate operatives" //just in case
-	antagpanel_category = "NukeOp"
+	antagpanel_category = ANTAG_GROUP_SYNDICATE
 	banning_key = ROLE_NUCLEAR_OPERATIVE
 	required_living_playtime = 8
 	antag_moodlet = /datum/mood_event/focused
@@ -37,7 +37,7 @@
 	return TRUE
 
 /datum/antagonist/nukeop/greet()
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ops.ogg', vol = 100, vary = FALSE, channel = CHANNEL_ANTAG_GREETING, pressure_affected = FALSE, use_reverb = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'sound/effects/antag/ops.ogg', vol = 100, vary = FALSE, channel = CHANNEL_ANTAG_GREETING, pressure_affected = FALSE, use_reverb = FALSE)
 	to_chat(owner, span_notice("You are a [nuke_team ? nuke_team.syndicate_name : "syndicate"] agent!"))
 	owner.announce_objectives()
 	owner.current.client?.tgui_panel?.give_antagonist_popup("Nuclear Operative",
@@ -197,7 +197,7 @@
 		owner.current.fully_replace_character_name(owner.current.real_name, "[nuke_team.syndicate_name] [title]")
 
 /datum/antagonist/nukeop/leader/greet()
-	owner.current.playsound_local(get_turf(owner.current), 'sound/ambience/antag/ops.ogg', vol = 100, vary = FALSE, channel = CHANNEL_ANTAG_GREETING, pressure_affected = FALSE, use_reverb = FALSE)
+	owner.current.playsound_local(get_turf(owner.current), 'sound/effects/antag/ops.ogg', vol = 100, vary = FALSE, channel = CHANNEL_ANTAG_GREETING, pressure_affected = FALSE, use_reverb = FALSE)
 	to_chat(owner, "<B>You are the Syndicate [title] for this mission. You are responsible for the distribution of telecrystals and your ID is the only one who can open the launch bay doors.</B>")
 	to_chat(owner, "<B>If you feel you are not up to this task, give your ID to another operative.</B>")
 	to_chat(owner, "<B>In your hand you will find a special item capable of triggering a greater challenge for your team. Examine it carefully and consult with your fellow operatives before activating it.</B>")
@@ -293,7 +293,7 @@
 			log_objective(M, O.explanation_text)
 
 /datum/team/nuclear/proc/disk_rescued()
-	for(var/obj/item/disk/nuclear/D in GLOB.poi_list)
+	for(var/obj/item/disk/nuclear/D in SSpoints_of_interest.real_nuclear_disks)
 		//If emergency shuttle is in transit disk is only safe on it
 		if(SSshuttle.emergency.mode == SHUTTLE_ESCAPE)
 			if(!SSshuttle.emergency.is_in_shuttle_bounds(D))
@@ -416,7 +416,7 @@
 /datum/team/nuclear/antag_listing_entry()
 	var/disk_report = "<b>Nuclear Disk(s)</b><br>"
 	disk_report += "<table cellspacing=5>"
-	for(var/obj/item/disk/nuclear/N in GLOB.poi_list)
+	for(var/obj/item/disk/nuclear/N in SSpoints_of_interest.real_nuclear_disks)
 		disk_report += "<tr><td>[N.name], "
 		var/atom/disk_loc = N.loc
 		while(!isturf(disk_loc))
